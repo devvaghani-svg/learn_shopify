@@ -7,10 +7,11 @@
     <div class="guide__card">
 
       {%- comment -%} ── IMAGE ── {%- endcomment -%}
-      {%- if product.featured_image -%}
+      {%- assign guide_image = section.settings.image | default: product.featured_image -%}
+      {%- if guide_image -%}
         <img
           class="guide__img"
-          src="{{ product.featured_image | image_url: width: 900 }}"
+          src="{{ guide_image | image_url: width: 900 }}"
           alt="{{ product.title | escape }}"
           width="600"
           height="600"
@@ -56,6 +57,12 @@
   "tag": "section",
   "class": "section-guide",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "If not set, product featured image is used"
+    },
     {
       "type": "text",
       "id": "heading",
