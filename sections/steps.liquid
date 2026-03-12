@@ -1,0 +1,170 @@
+{{ 'steps.css' | asset_url | stylesheet_tag }}
+
+<section class="steps" style="--steps-bg: {{ section.settings.bg_color }}; --steps-accent: {{ section.settings.accent_color }};">
+  <div class="steps__container">
+
+    {%- comment -%} ── Left: content ── {%- endcomment -%}
+    <div class="steps__content">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="steps__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      <div class="steps__list">
+        {%- for block in section.blocks -%}
+          <div class="steps__item" {{ block.shopify_attributes }}>
+
+            <div class="steps__item-left">
+              {%- if block.settings.label != blank -%}
+                <span class="steps__badge">{{ block.settings.label }}</span>
+              {%- endif -%}
+              <div class="steps__line"></div>
+            </div>
+
+            <div class="steps__item-body">
+              {%- if block.settings.title != blank -%}
+                <h3 class="steps__item-title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              <ul class="steps__bullets">
+                {%- if block.settings.bullet_1 != blank -%}
+                  <li>{{ block.settings.bullet_1 }}</li>
+                {%- endif -%}
+                {%- if block.settings.bullet_2 != blank -%}
+                  <li>{{ block.settings.bullet_2 }}</li>
+                {%- endif -%}
+                {%- if block.settings.bullet_3 != blank -%}
+                  <li>{{ block.settings.bullet_3 }}</li>
+                {%- endif -%}
+              </ul>
+            </div>
+
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {%- comment -%} ── Right: image ── {%- endcomment -%}
+    <div class="steps__media">
+      {%- if section.settings.image != blank -%}
+        <img
+          class="steps__image"
+          src="{{ section.settings.image | image_url: width: 800 }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Steps",
+  "tag": "section",
+  "class": "section-steps",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Start Your Journey With Wellie"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Dog enjoying a treat"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#F9F3F1"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Badge & line color",
+      "default": "#2D8A7A"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Step label",
+          "default": "Month 1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Step title"
+        },
+        {
+          "type": "text",
+          "id": "bullet_1",
+          "label": "Bullet 1",
+          "default": "First benefit point."
+        },
+        {
+          "type": "text",
+          "id": "bullet_2",
+          "label": "Bullet 2",
+          "default": "Second benefit point."
+        },
+        {
+          "type": "text",
+          "id": "bullet_3",
+          "label": "Bullet 3 (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Steps",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "label": "Month 1",
+            "title": "Initial adaptation and digestive support",
+            "bullet_1": "The prebiotics help improve nutrient absorption.",
+            "bullet_2": "Enhanced digestion often leads to an improved appetite."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "Month 2",
+            "title": "Strengthening gut health and Immunity",
+            "bullet_1": "Probiotics begin to establish a healthier gut microbiome.",
+            "bullet_2": "The probiotics reduce bad bacteria, leading to better breath."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "Month 3",
+            "title": "Visible skin and coat improvements",
+            "bullet_1": "Healthy coat noticeable improvement in coat quality.",
+            "bullet_2": "Dogs experience reduced itchiness and fewer skin irritations."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

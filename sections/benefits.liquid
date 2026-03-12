@@ -1,0 +1,137 @@
+{{ 'benefits.css' | asset_url | stylesheet_tag }}
+
+<section class="benefits" style="--benefits-bg: {{ section.settings.bg_color }};">
+  <div class="benefits__inner">
+
+    {%- comment -%} ── Corner decorations ── {%- endcomment -%}
+    <img
+      class="benefits__corner benefits__corner--left"
+      src="{{ 'lc.svg' | asset_url }}"
+      alt=""
+      aria-hidden="true"
+      width="78"
+      height="80"
+    >
+    <img
+      class="benefits__corner benefits__corner--right"
+      src="{{ 'rc.svg' | asset_url }}"
+      alt=""
+      aria-hidden="true"
+      width="150"
+      height="80"
+    >
+
+    {%- comment -%} ── Heading ── {%- endcomment -%}
+    <div class="benefits__header">
+      <h2 class="benefits__heading">
+        {%- if section.settings.heading_line1 != blank -%}
+          <span class="benefits__heading-row">{{- section.settings.heading_line1 -}}</span>
+        {%- endif -%}
+        {%- if section.settings.heading_line2 != blank -%}
+          <span class="benefits__heading-row">{{- section.settings.heading_line2 -}}</span>
+        {%- endif -%}
+      </h2>
+    </div>
+
+    {%- comment -%} ── Benefits grid ── {%- endcomment -%}
+    <div class="benefits__grid">
+      {%- for block in section.blocks -%}
+        <div class="benefits__item" {{ block.shopify_attributes }}>
+          <div class="benefits__number">{{ forloop.index }}</div>
+          <div class="benefits__body">
+            {%- if block.settings.title != blank -%}
+              <h3 class="benefits__item-title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.description != blank -%}
+              <p class="benefits__item-desc">{{ block.settings.description }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benefits",
+  "tag": "section",
+  "class": "section-benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading line 1",
+      "default": "Benefits your pet"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading line 2",
+      "default": "can feel."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#E8186D"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Describe the benefit here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Supports Digestive Health",
+            "description": "Prebiotics, probiotics, and enzymes help maintain a healthy gut and smooth digestion."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Strengthens Immunity",
+            "description": "4 billion live bacteria per chew support a balanced gut and stronger immune defense."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Enhances Nutrient Absorption",
+            "description": "Papain and Bromelain help your dog absorb more nutrients for better energy and vitality."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Reduces Inflammation & Discomfort",
+            "description": "Helps ease bloating, itching, tear stains, and bad breath for everyday wellness."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

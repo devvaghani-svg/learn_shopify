@@ -1,0 +1,203 @@
+/* ─── Benefits Section ─── */
+.benefits {
+  background: #F9F3F1;
+  padding: 60px 40px;
+}
+
+/* ── Inner card ── */
+.benefits__inner {
+  position: relative;
+  background: var(--benefits-bg, #E8186D);
+  background-image: url('benefits-pattern.svg');
+  background-repeat: repeat;
+  background-size: 600px 400px;
+  border-radius: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 80px 100px;
+  overflow: hidden;
+}
+
+/* ── Corner SVGs ── */
+.benefits__corner {
+  position: absolute;
+  bottom: 16px;
+  pointer-events: none;
+}
+
+.benefits__corner--left {
+  left: 20px;
+}
+
+.benefits__corner--right {
+  right: 20px;
+}
+
+/* ── Header ── */
+.benefits__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.benefits__heading {
+  position: relative;
+  font-size: 58px;
+  font-weight: 700;
+  font-family: 'Cafeteria';
+  margin: 0;
+  line-height: 1.15;
+  padding-bottom: 12px;
+}
+
+/* Desktop: ::before left/bottom, ::after right/bottom on heading */
+.benefits__heading::before {
+  content: '';
+  position: absolute;
+  left: 29%;
+  bottom: 0;
+  width: 149px;
+  height: 6px;
+  background: url('border.svg') no-repeat left / contain;
+}
+
+.benefits__heading::after {
+  content: '';
+  position: absolute;
+  right: 27%;
+  bottom: 0;
+  width: 100px;
+  height: 6px;
+  background: url('border.svg') no-repeat right / contain;
+}
+
+.benefits__heading-row {
+  display: inline;
+  font-family: 'Cafeteria';
+  color: white;
+}
+
+/* ── Grid ── */
+.benefits__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  gap: 40px 80px;
+}
+
+/* ── Item ── */
+.benefits__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* ── Number circle ── */
+.benefits__number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 150, 180, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+/* ── Body ── */
+.benefits__item-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.benefits__item-desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .benefits {
+    padding: 0;
+  }
+
+  .benefits__inner {
+    padding: 40px 24px 100px;
+    border-radius: 0;
+  }
+
+  .benefits__header {
+    margin-bottom: 36px;
+    text-align: left;
+  }
+
+  .benefits__heading {
+    font-size: 58px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-bottom: 0;
+  }
+
+  /* Disable desktop pseudo-elements on mobile */
+  .benefits__heading::before,
+  .benefits__heading::after {
+    display: none;
+  }
+
+  /* Each span stacks and gets its own underline below */
+  .benefits__heading-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .benefits__heading-row::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 6px;
+    background: url('border.svg') no-repeat left / contain;
+  }
+
+  .benefits__grid {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    gap: 28px;
+  }
+
+  .benefits__item-title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .benefits__item-desc {
+    font-size: 16px;
+  }
+
+  .benefits__corner {
+    bottom: 12px;
+  }
+
+  .benefits__corner--left {
+    left: 12px;
+  }
+
+  .benefits__corner--right {
+    right: 12px;
+  }
+}

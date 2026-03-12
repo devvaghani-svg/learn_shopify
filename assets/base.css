@@ -10,7 +10,10 @@
   font-family: "Harond";
   src: url("./harond.ttf") format("truetype");
 }
-
+@font-face {
+  font-family: "Cafeteria";
+  src: url("./Cafeteria.otf") format("opentype");
+}
 @font-face {
   font-family: "Cabin";
   src: url("./cabin.ttf") format("truetype");

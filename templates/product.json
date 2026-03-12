@@ -1,12 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+
 {
   "sections": {
     "main": {
@@ -110,28 +102,100 @@
         "show_description": true
       }
     },
-    "ingredients": {
-      "type": "ingredients",
-      "settings": {
-        "heading": "Premium Ingredients"
+    "ingredients":{
+    "type":"ingredients",
+    "settings":{}
+  },
+
+  "guide":{
+    "type":"guide",
+    "setting":{}
+  },
+  "benefits": {
+    "type": "benefits",
+    "blocks": {
+      "benefit_1": {
+        "type": "benefit",
+        "settings": {
+          "title": "Supports Digestive Health",
+          "description": "Prebiotics, probiotics, and enzymes help maintain a healthy gut and smooth digestion."
+        }
+      },
+      "benefit_2": {
+        "type": "benefit",
+        "settings": {
+          "title": "Strengthens Immunity",
+          "description": "4 billion live bacteria per chew support a balanced gut and stronger immune defense."
+        }
+      },
+      "benefit_3": {
+        "type": "benefit",
+        "settings": {
+          "title": "Enhances Nutrient Absorption",
+          "description": "Papain and Bromelain help your dog absorb more nutrients for better energy and vitality."
+        }
+      },
+      "benefit_4": {
+        "type": "benefit",
+        "settings": {
+          "title": "Reduces Inflammation & Discomfort",
+          "description": "Helps ease bloating, itching, tear stains, and bad breath for everyday wellness."
+        }
       }
     },
-    "guide": {
-      "type": "guide",
-      "settings": {
-        "image": "shopify://shop_images/2150930449_1.png",
-        "heading": "Feeding guide",
-        "col_weight": "Dog Weight",
-        "col_daily": "Daily",
-        "col_monthly": "Monthly QTY"
-      }
+    "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4"],
+    "settings": {
+      "heading_line1": "Benefits your pet",
+      "heading_line2": "can feel.",
+      "bg_color": "#E8186D"
     }
+  },
+  "steps": {
+    "type": "steps",
+    "blocks": {
+      "step_1": {
+        "type": "step",
+        "settings": {
+          "label": "Month 1",
+          "title": "Initial adaptation and digestive support",
+          "bullet_1": "The prebiotics help improve nutrient absorption.",
+          "bullet_2": "Enhanced digestion often leads to an improved appetite."
+        }
+      },
+      "step_2": {
+        "type": "step",
+        "settings": {
+          "label": "Month 2",
+          "title": "Strengthening gut health and Immunity",
+          "bullet_1": "Probiotics begin to establish a healthier gut microbiome.",
+          "bullet_2": "The probiotics reduce bad bacteria, leading to better breath."
+        }
+      },
+      "step_3": {
+        "type": "step",
+        "settings": {
+          "label": "Month 3",
+          "title": "Visible skin and coat improvements",
+          "bullet_1": "Healthy coat noticeable improvement in coat quality.",
+          "bullet_2": "Dogs experience reduced itchiness and fewer skin irritations."
+        }
+      }
+    },
+    "block_order": ["step_1", "step_2", "step_3"],
+    "settings": {
+      "heading": "Start Your Journey With Wellie",
+      "bg_color": "#F9F3F1",
+      "accent_color": "#2D8A7A"
+    }
+  }
   },
   "order": [
     "main",
     "review",
     "description",
     "ingredients",
-    "guide"
+    "guide",
+    "benefits",
+    "steps"
   ]
 }
