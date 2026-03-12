@@ -258,6 +258,14 @@
         "card_image_alt": "Dog",
         "card_bg_color": "#b8e04a"
       }
+    },
+    "related_product": {
+      "type": "related_product",
+      "settings": {
+        "heading": "You might also like",
+        "collection": "doggy",
+        "products_count": 4
+      }
     }
   },
   "order": [
@@ -268,6 +276,7 @@
     "guide",
     "benefits",
     "steps",
-    "right"
+    "right",
+    "related_product"
   ]
 }
