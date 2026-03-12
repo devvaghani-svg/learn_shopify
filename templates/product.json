@@ -394,14 +394,84 @@
     "Payingpartner": {
       "type": "Payingpartner",
       "blocks": {
-        "logo_1": { "type": "payment_logo", "settings": { "image_alt": "Mastercard" } },
-        "logo_2": { "type": "payment_logo", "settings": { "image_alt": "Visa" } },
-        "logo_3": { "type": "payment_logo", "settings": { "image_alt": "Paytm" } },
-        "logo_4": { "type": "payment_logo", "settings": { "image_alt": "UPI" } },
-        "logo_5": { "type": "payment_logo", "settings": { "image_alt": "Google Pay" } },
-        "logo_6": { "type": "payment_logo", "settings": { "image_alt": "PhonePe" } }
+        "logo_1": {
+          "type": "payment_logo",
+          "settings": {
+            "image": "shopify://shop_images/image_106.png",
+            "image_alt": "Mastercard"
+          }
+        },
+        "payment_logo_7mr3mt": {
+          "type": "payment_logo",
+          "settings": {
+            "image": "shopify://shop_images/image_108.png",
+            "image_alt": "Mastercard"
+          }
+        },
+        "payment_logo_aRkhgn": {
+          "type": "payment_logo",
+          "settings": {
+            "image": "shopify://shop_images/image_110.png",
+            "image_alt": "Mastercard"
+          }
+        },
+        "payment_logo_gbhUrJ": {
+          "type": "payment_logo",
+          "settings": {
+            "image": "shopify://shop_images/image_109.png",
+            "image_alt": "Mastercard"
+          }
+        },
+        "payment_logo_9XbMaD": {
+          "type": "payment_logo",
+          "settings": {
+            "image": "shopify://shop_images/image_111.png",
+            "image_alt": "Mastercard"
+          }
+        },
+        "logo_2": {
+          "type": "payment_logo",
+          "settings": {
+            "image_alt": "Visa"
+          }
+        },
+        "logo_3": {
+          "type": "payment_logo",
+          "settings": {
+            "image_alt": "Paytm"
+          }
+        },
+        "logo_4": {
+          "type": "payment_logo",
+          "settings": {
+            "image_alt": "UPI"
+          }
+        },
+        "logo_5": {
+          "type": "payment_logo",
+          "settings": {
+            "image_alt": "Google Pay"
+          }
+        },
+        "logo_6": {
+          "type": "payment_logo",
+          "settings": {
+            "image_alt": "PhonePe"
+          }
+        }
       },
-      "block_order": ["logo_1", "logo_2", "logo_3", "logo_4", "logo_5", "logo_6"],
+      "block_order": [
+        "logo_1",
+        "payment_logo_7mr3mt",
+        "payment_logo_aRkhgn",
+        "payment_logo_gbhUrJ",
+        "payment_logo_9XbMaD",
+        "logo_2",
+        "logo_3",
+        "logo_4",
+        "logo_5",
+        "logo_6"
+      ],
       "settings": {
         "heading": "Securely pay using",
         "note": "Oh! and cash on delivery too :)"
