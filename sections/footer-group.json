@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Footer",
@@ -5,13 +14,21 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "bg_color": "#1B5E5E",
-        "logo_text": "Wellie",
+        "bg_color": "#1b5e5e",
+        "logo_image": "shopify://shop_images/Vector_2.png",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+        "facebook_icon": "shopify://shop_images/Frame_160_1.png",
+        "facebook_url": "",
+        "instagram_icon": "shopify://shop_images/Frame_3.png",
+        "instagram_url": "",
+        "twitter_icon": "shopify://shop_images/Frame_4.png",
+        "twitter_url": "",
+        "youtube_icon": "shopify://shop_images/Frame_6.png",
+        "youtube_url": "",
         "company_heading": "Company",
-        "company_menu": "company-menu",
+        "company_menu": "company",
         "products_heading": "Products",
-        "products_menu": "products-menu",
+        "products_menu": "footer",
         "contact_heading": "Want to get in touch?",
         "contact_sub": "We'd love to hear from you!\nFor any feedback or queries, contact us on :",
         "email": "raya@wellie.in",
@@ -21,5 +38,7 @@
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
