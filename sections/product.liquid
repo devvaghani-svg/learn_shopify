@@ -1,13 +1,225 @@
-<div class="w-full px-8">
-  <h1 class="text-2xl font-bold text-center">{{ product.title }}</h1>
+{{ 'product-page.css' | asset_url | stylesheet_tag }}
+
+{% assign selected_variant = product.selected_or_first_available_variant %}
+
+<section class="pdp">
+  <div class="pdp__inner">
+
+    {%- comment -%} ── GALLERY ── {%- endcomment -%}
+    <div class="pdp__gallery">
+
+      <div class="pdp__main-wrap">
+
+        <button class="pdp__arrow pdp__arrow--prev" data-gallery-prev type="button" aria-label="Previous image">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+
+        {%- if product.featured_image -%}
+          <img
+            id="pdp-main-img"
+            class="pdp__main-img"
+            src="{{ product.featured_image | image_url: width: 900 }}"
+            alt="{{ product.title | escape }}"
+            width="900"
+            height="900"
+          >
+        {%- endif -%}
+
+        <button class="pdp__arrow pdp__arrow--next" data-gallery-next type="button" aria-label="Next image">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+
+      </div>
+
+      <div class="pdp__thumbs">
+        {%- for image in product.images -%}
+          <button
+            class="pdp__thumb{%- if forloop.first %} is-active{%- endif -%}"
+            data-gallery-thumb="{{ forloop.index0 }}"
+            type="button"
+            aria-label="View image {{ forloop.index }}"
+          >
+            <img
+              src="{{ image | image_url: width: 150 }}"
+              alt="{{ product.title | escape }}"
+              width="150"
+              height="150"
+            >
+          </button>
+        {%- endfor -%}
+      </div>
+
+    </div>
+
+    {%- comment -%} ── INFO ── {%- endcomment -%}
+    <div class="pdp__info">
+
+      {%- if product.metafields.custom.badge != blank -%}
+        <span class="pdp__badge">{{ product.metafields.custom.badge }}</span>
+      {%- endif -%}
+
+      <h1 class="pdp__title">{{ product.title }}</h1>
+
+      <div class="pdp__price-row">
+        <span class="pdp__price" id="pdp-price">{{ selected_variant.price | money }}</span>
+        {%- if selected_variant.compare_at_price > selected_variant.price -%}
+          <span class="pdp__compare" id="pdp-compare-price">{{ selected_variant.compare_at_price | money }}</span>
+        {%- else -%}
+          <span class="pdp__compare" id="pdp-compare-price" style="display:none"></span>
+        {%- endif -%}
+      </div>
+
+      <p class="pdp__tax-note">MRP Inclusive of all taxes</p>
+
+      {%- assign benefits = product.metafields.custom.benefits_reference.value -%}
+
+      {%- if benefits != blank -%}
+        {%- for benefit in benefits -%}
+          <div class="pdp__benefit">
+            <span class="pdp__benefit-icon">
+              <img
+                src="{{ benefit.image | image_url: width: 72 }}"
+                alt="{{ benefit.title }}"
+                width="36"
+                height="36"
+              >
+            </span>
+            <div>
+              <p class="pdp__benefit-title">{{ benefit.title }}</p>
+              <p class="pdp__benefit-sub">{{ benefit.description }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+
+      <p class="pdp__size-label">Select Size</p>
+
+      <div class="pdp__variants">
+        {%- for variant in product.variants -%}
+          <button
+            class="pdp__variant-btn{%- if variant == selected_variant %} is-active{%- endif -%}"
+            data-variant-id="{{ variant.id }}"
+            type="button"
+          >
+            {%- if variant.metafields.custom.most_ordered_bagde != blank -%}
+              <span class="pdp__variant-badge">{{ variant.metafields.custom.most_ordered_bagde }}</span>
+            {%- elsif variant.metafields.custom.best_deal_bagde != blank -%}
+              <span class="pdp__variant-badge">{{ variant.metafields.custom.best_deal_bagde }}</span>
+            {%- endif -%}
+            {{ variant.title }}
+          </button>
+        {%- endfor -%}
+      </div>
+
+      <form id="pdp-form" method="post" action="/cart/add">
+
+        <input type="hidden" name="id" id="pdp-variant-id" value="{{ selected_variant.id }}">
+
+        <div class="pdp__atc-row">
+
+          <div class="pdp__qty">
+            <button class="pdp__qty-btn" data-qty-dec type="button" aria-label="Decrease quantity">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <input
+              type="text"
+              id="pdp-qty"
+              name="quantity"
+              value="01"
+              class="pdp__qty-input"
+              inputmode="numeric"
+              aria-label="Quantity"
+            >
+            <button class="pdp__qty-btn" data-qty-inc type="button" aria-label="Increase quantity">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+          </div>
+
+          <button class="pdp__atc-btn" type="submit">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F9F3F1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="21" r="1"/>
+              <circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Add to Cart
+          </button>
+
+        </div>
+
+        <button class="pdp__buy-now-btn" type="button" data-buy-now>
+          Buy It Now
+        </button>
+
+      </form>
+
+      {%- comment -%} ── COUPONS ── {%- endcomment -%}
+      {%- assign coupons = product.metafields.custom.discount_reference.value -%}
+      {%- if coupons != blank -%}
+        <div class="pdp__coupons">
+          {%- for coupon in coupons -%}
+            {%- assign discount = coupon.amount -%}
+            {%- assign discount_amount = selected_variant.price | times: discount | divided_by: 100 -%}
+            {%- assign final_price = selected_variant.price | minus: discount_amount -%}
+            <div class="pdp__coupon" data-discount="{{ coupon.amount }}">
+              <div class="pdp__coupon-left">
+                <span class="pdp__coupon-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                    <line x1="7" y1="7" x2="7.01" y2="7"/>
+                  </svg>
+                </span>
+                <div>
+                  <span class="pdp__coupon-price" data-coupon-price>Get it for {{ final_price | money }}</span>
+                  <p class="pdp__coupon-text">Copy code to get {{ discount }}% off</p>
+                </div>
+              </div>
+              <button class="pdp__copy-btn" data-copy="{{ coupon.code }}" type="button" aria-label="Copy coupon code">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+              </button>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+<div class="pdp-marquee" aria-hidden="true">
+  <div class="pdp-marquee__track">
+    {%- for i in (1..4) -%}
+      <span class="pdp-marquee__item">Targets Root Cause</span>
+      <span class="pdp-marquee__sep">🐾</span>
+      <span class="pdp-marquee__item">Vet Approved</span>
+      <span class="pdp-marquee__sep">🐾</span>
+      <span class="pdp-marquee__item">Scientifically Formulated</span>
+      <span class="pdp-marquee__sep">🐾</span>
+    {%- endfor -%}
+  </div>
 </div>
+
+<script type="application/json" id="pdp-variants-json">
+  [{% for variant in product.variants %}{"id":{{ variant.id }},"price":{{ variant.price }},"compare_at_price":{{ variant.compare_at_price | default: 0 }}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+</script>
+
+<script src="{{ 'product-page.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
-  "name": "t:general.product",
-  "settings": [],
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  }
+  "name": "Product",
+  "tag": "section",
+  "class": "section-product"
 }
 {% endschema %}

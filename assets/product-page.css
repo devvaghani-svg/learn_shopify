@@ -1,0 +1,528 @@
+/* ─── Marquee ─── */
+.pdp-marquee {
+  background: #C4006A;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 12px 0;
+}
+
+.pdp-marquee__track {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  animation: pdp-marquee-scroll 20s linear infinite;
+}
+
+.pdp-marquee__item {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.pdp-marquee__sep {
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+@keyframes pdp-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── Layout ─── */
+.pdp {
+  background: #F9F3F1;
+  padding: 40px 0 64px;
+}
+
+.pdp__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ─── Gallery ─── */
+.pdp__gallery {
+  position: sticky;
+  top: 20px;
+}
+
+.pdp__main-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1a3a38;
+}
+
+.pdp__main-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.pdp__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #e8185a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.pdp__arrow:hover {
+  background: #c9145a;
+}
+
+.pdp__arrow svg {
+  pointer-events: none;
+}
+
+.pdp__arrow--prev {
+  left: 14px;
+}
+
+.pdp__arrow--next {
+  right: 14px;
+}
+
+.pdp__thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.pdp__thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.pdp__thumb {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  border-radius: 10px;
+  border: 2.5px solid transparent;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color 0.15s;
+}
+
+.pdp__thumb.is-active {
+  border-color: #1d5c58;
+}
+
+.pdp__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Info ─── */
+.pdp__info {
+  padding-top: 8px;
+}
+
+.pdp__badge {
+  display: inline-block;
+  background: #e8185a;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 16px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+}
+
+.pdp__title {
+  font-family: "Harond";
+  font-size: 36px;
+  font-weight: 400;
+    color: #3A3A3E;
+  line-height: 100%;
+  
+  margin-bottom: 16px;
+}
+
+.pdp__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+.pdp__price {
+  font-size: 24px;
+  font-family: "Cabin";
+  font-weight: 600;
+  color: #3A3A3E;
+  ;
+}
+
+.pdp__compare {
+  font-size: 16px;
+  font-weight: 400;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.pdp__tax-note {
+  font-family: "Cabin";
+  font-weight: 400;
+  font-size: 12px;
+  color:#3A3A3E;
+  margin-bottom: 20px;
+}
+
+/* ─── Benefit box ─── */
+.pdp__benefit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fdf4f4;
+  border: 1px solid #f0dede;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+}
+
+.pdp__benefit-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdp__benefit-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 3px;
+}
+
+.pdp__benefit-sub {
+  font-size: 13px;
+  color: #555;
+}
+
+.pdp__benefit-sub a {
+  color: #1d5c58;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pdp__benefit-sub a:hover {
+  text-decoration: underline;
+}
+
+/* ─── Variants ─── */
+.pdp__size-label {
+  font-size: 14px;
+line-height: 21px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #555;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.pdp__variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-top: 12px;
+}
+
+.pdp__variant-btn {
+  position: relative;
+  padding: 11px 20px;
+  border: 1.5px solid #025A6014;
+  border-radius: 100px;
+  background: #025A6014;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #025A60;
+  font-style: bold;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  line-height: 1.2;
+}
+
+.pdp__variant-btn.is-active {
+  background: #1d5c58;
+  color: white;
+  border-color: #1d5c58;
+}
+
+.pdp__variant-badge {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: #e8185a;
+  color: white;
+  letter-spacing: 0.02em;
+}
+
+/* ─── ATC Row ─── */
+.pdp__atc-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pdp__qty {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #c0bdb8;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: white;
+  /* margin: 7px; */
+}
+
+.pdp__qty-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  background:#025A6014;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #025A60;
+  transition: background 0.12s;
+  margin: 0 10px;
+}
+
+.pdp__qty-btn:hover {
+  background: #f0ede8;
+}
+
+.pdp__qty-btn svg {
+  pointer-events: none;
+}
+
+.pdp__qty-input {
+  width: 25px;
+  height: 54px;
+  border: none;
+  font-weight: 500;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  background: white;
+  outline: none;
+  color: #025A60;
+}
+
+.pdp__atc-btn {
+  flex: 1;
+  height: 54px;
+  background: #025A60;
+  color: #F9F3F1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-transform: uppercase;
+  transition: background 0.15s;
+}
+
+.pdp__atc-btn:hover {
+  background: #174a47;
+}
+
+.pdp__atc-btn svg {
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* ─── Buy Now ─── */
+.pdp__buy-now-btn {
+  width: 100%;
+  height: 54px;
+  background: #025A60;
+  color: #F9F3F1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.15s;
+  margin-bottom: 20px;
+}
+
+.pdp__buy-now-btn:hover {
+  background: #174a47;
+}
+
+/* ─── Coupons ─── */
+.pdp__coupons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pdp__coupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1.5px dashed #b8bcbe;
+  border-radius: 10px;
+  padding: 12px 12px;
+  background: #f6fafa;
+}
+
+.pdp__coupon-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.pdp__coupon-icon {
+  flex-shrink: 0;
+  color: #1d5c58;
+  display: flex;
+  align-items: center;
+}
+
+.pdp__coupon-price {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.pdp__coupon-text {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.pdp__copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #555;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.pdp__copy-btn:hover {
+  color: #1d5c58;
+}
+
+.pdp__copy-btn svg {
+  pointer-events: none;
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 768px) {
+  .pdp {
+    padding: 0 0 48px;
+  }
+
+  .pdp__inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  .pdp__gallery {
+    position: static;
+  }
+
+  .pdp__main-wrap {
+    border-radius: 0;
+  }
+
+  .pdp__thumbs {
+    padding: 12px 16px;
+    margin-top: 0;
+    background: #edeae3;
+  }
+
+  .pdp__thumb {
+    width: 66px;
+    height: 66px;
+    min-width: 66px;
+  }
+
+  .pdp__info {
+    padding: 20px 16px 40px;
+  }
+
+  .pdp__title {
+    font-size: 30px;
+  }
+
+  .pdp__price {
+    font-size: 24px;
+  }
+
+  .pdp__compare {
+    font-size: 17px;
+  }
+
+  .pdp__variants {
+    gap: 10px;
+  }
+
+  .pdp__coupons {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pdp__coupon-price {
+    font-size: 12px;
+  }
+}

@@ -1,128 +1,169 @@
-<header class="relative flex items-center justify-between p-4 md:p-8">
-  <nav class="hidden md:block" aria-label="Main navigation">
-    <ul class="flex items-center gap-8 list-none">
-      {% for link in section.settings.menu.links %}
-        <li class="relative">
-          <div class="group">
-            {% if link.links.size > 0 %}
-              <span class="flex items-center gap-1 text-inherit cursor-pointer hover:underline hover:underline-offset-4">
-                {{ link.title }}
-                {% render 'icon-chevron-down',
-                  class_name: 'w-4 h-4 transition-transform duration-200 group-hover:rotate-180'
-                %}
-              </span>
-            {% else %}
-              <a href="{{ link.url }}" class="no-underline hover:underline hover:underline-offset-4 text-inherit">
-                {{ link.title }}
-              </a>
-            {% endif %}
-            {% if link.links.size > 0 %}
-              <ul class="absolute top-full left-0 min-w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2 mt-2 list-none">
-                {% for child_link in link.links %}
-                  <li>
-                    <a
-                      href="{{ child_link.url }}"
-                      class="block px-4 py-2 no-underline hover:underline hover:underline-offset-4 text-inherit"
-                    >
-                      {{ child_link.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
+{{ 'header.css' | asset_url | stylesheet_tag}}
 
-  <button
-    type="button"
-    class="block md:hidden bg-transparent border-none cursor-pointer p-2"
-    aria-label="Toggle menu"
-    aria-expanded="false"
-    data-menu-toggle
-  >
-    {% render 'icon-hamburger' %}
-  </button>
+<header class="site-header" role="banner">
+  <div class="site-header__inner">
 
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-    <a href="{{ routes.root_url }}" class="block" aria-label="{{ shop.name }}">
-      {% if settings.logo != blank %}
-        {% render 'logo', class_name: 'w-auto h-10' %}
+    {%- comment -%} Left slot {%- endcomment -%}
+    <div class="site-header__left">
+      {%- comment -%} Desktop: logo {%- endcomment -%}
+      <div class="site-header__logo-desktop">
+        <a href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+          {%- if settings.logo != blank -%}
+            {% render 'logo', class_name: 'site-header__logo-img' %}
+          {%- else -%}
+            <span class="site-header__logo-text">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+      </div>
 
-      {% else %}
-        <span class="text-2xl font-bold">{{ shop.name }}</span>
-      {% endif %}
-    </a>
-  </div>
-
-  <div class="flex items-center">
-    {% render 'cart-icon' %}
-  </div>
-
-  <nav
-    class="fixed top-0 left-0 w-4/5 max-w-sm h-full bg-white z-40 transform -translate-x-full transition-transform duration-300 ease-in-out hidden shadow-lg md:hidden"
-    data-mobile-menu
-    aria-label="Mobile navigation"
-  >
-    <div class="pt-14 px-8 overflow-y-auto h-full relative">
+      {%- comment -%} Mobile: hamburger (dot-grid) {%- endcomment -%}
       <button
         type="button"
-        class="absolute top-4 right-4 bg-transparent border-none cursor-pointer p-2 z-50"
-        aria-label="Close menu"
-        data-menu-close
+        class="site-header__hamburger"
+        aria-label="Open menu"
+        aria-expanded="false"
+        data-menu-toggle
       >
-        {% render 'icon-close', color: 'black' %}
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="7" cy="5.5" r="2" fill="#1d5c58"/>
+          <circle cx="15" cy="5.5" r="2" fill="#1d5c58"/>
+          <circle cx="7" cy="11" r="2" fill="#1d5c58"/>
+          <circle cx="15" cy="11" r="2" fill="#1d5c58"/>
+          <circle cx="7" cy="16.5" r="2" fill="#1d5c58"/>
+          <circle cx="15" cy="16.5" r="2" fill="#1d5c58"/>
+        </svg>
       </button>
-      <ul class="space-y-8 list-none">
-        {% for link in section.settings.menu.links %}
-          <li>
-            {% if link.links.size > 0 %}
-              <button
-                type="button"
-                class="w-full flex items-center justify-between gap-1 text-inherit text-xl bg-transparent border-none cursor-pointer p-0 text-left"
-                aria-label="Toggle submenu for {{ link.title }}"
-                aria-expanded="false"
-                data-submenu-toggle
-              >
-                <span>{{ link.title }}</span>
-                {% render 'icon-chevron-down', class_name: 'w-4 h-4' %}
-              </button>
-            {% else %}
-              <a
-                href="{{ link.url }}"
-                class="block no-underline hover:underline hover:underline-offset-4 text-inherit text-xl"
-              >
-                {{ link.title }}
-              </a>
-            {% endif %}
-            {% if link.links.size > 0 %}
-              <ul class="max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out mt-2 space-y-2 list-none bg-white rounded-md py-0">
-                {% for child_link in link.links %}
-                  <li>
-                    <a
-                      href="{{ child_link.url }}"
-                      class="block px-4 py-2 no-underline hover:underline hover:underline-offset-4 text-inherit"
-                    >
-                      {{ child_link.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
     </div>
-  </nav>
 
-  <div
-    class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden md:hidden"
-    data-mobile-overlay
-    aria-hidden="true"
-  ></div>
+    {%- comment -%} Center slot {%- endcomment -%}
+    <div class="site-header__center">
+      {%- comment -%} Mobile: logo centered {%- endcomment -%}
+      <div class="site-header__logo-mobile">
+        <a href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+          {%- if settings.logo != blank -%}
+            {% render 'logo', class_name: 'site-header__logo-img' %}
+          {%- else -%}
+            <span class="site-header__logo-text">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+      </div>
+
+      {%- comment -%} Desktop: navigation {%- endcomment -%}
+      <nav aria-label="Main navigation">
+        <ul class="site-header__nav">
+          <li class="site-header__nav-item">
+            <a href="{{ routes.root_url }}" class="site-header__nav-link">Home</a>
+          </li>
+          <li class="site-header__nav-item">
+            <span class="site-header__nav-link">
+              Shop
+              <svg class="site-header__nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.625 5.25L7 9.625L11.375 5.25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <ul class="site-header__dropdown">
+              {%- for link in section.settings.menu.links -%}
+                {%- if link.title == 'Shop' or link.title == 'shop' -%}
+                  {%- for child_link in link.links -%}
+                    <li>
+                      <a href="{{ child_link.url }}" class="site-header__dropdown-link">{{ child_link.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/pages/about-us" class="site-header__nav-link">About Us</a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/pages/contact" class="site-header__nav-link">Contact us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    {%- comment -%} Right slot: icons {%- endcomment -%}
+    <div class="site-header__right">
+      <button type="button" class="site-header__icon-btn" aria-label="Search">
+        {% render 'icon-search', class_name: 'w-5 h-5' %}
+      </button>
+
+      <button type="button" class="site-header__icon-btn site-header__icon-account" aria-label="Account">
+        {% render 'icon-account', class_name: 'w-5 h-5' %}
+      </button>
+
+      <button
+        type="button"
+        class="site-header__icon-btn"
+        aria-label="Open cart"
+        data-cart-open-trigger
+      >
+        {% render 'icon-cart', class_name: 'w-5 h-5' %}
+        {%- if cart.item_count > 0 -%}
+          <span class="site-header__cart-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </button>
+    </div>
+
+  </div>
 </header>
+
+{%- comment -%} Mobile drawer navigation {%- endcomment -%}
+<nav
+  class="site-header__mobile-menu"
+  data-mobile-menu
+  aria-label="Mobile navigation"
+>
+  <div class="site-header__mobile-menu-inner">
+    <button
+      type="button"
+      class="site-header__mobile-close"
+      aria-label="Close menu"
+      data-menu-close
+    >
+      {% render 'icon-close', color: '#1d5c58' %}
+    </button>
+
+    <ul class="site-header__mobile-nav">
+      <li class="site-header__mobile-nav-item">
+        <a href="{{ routes.root_url }}" class="site-header__mobile-nav-link">Home</a>
+      </li>
+      <li class="site-header__mobile-nav-item">
+        <button
+          type="button"
+          class="site-header__mobile-submenu-toggle"
+          aria-expanded="false"
+          data-submenu-toggle
+        >
+          <span>Shop</span>
+          <svg class="site-header__mobile-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.625 5.25L7 9.625L11.375 5.25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul class="site-header__mobile-submenu">
+          {%- for link in section.settings.menu.links -%}
+            {%- if link.title == 'Shop' or link.title == 'shop' -%}
+              {%- for child_link in link.links -%}
+                <li>
+                  <a href="{{ child_link.url }}" class="site-header__mobile-submenu-link">{{ child_link.title }}</a>
+                </li>
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </li>
+      <li class="site-header__mobile-nav-item">
+        <a href="/pages/about-us" class="site-header__mobile-nav-link">About Us</a>
+      </li>
+      <li class="site-header__mobile-nav-item">
+        <a href="/pages/contact" class="site-header__mobile-nav-link">Contact us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="site-header__overlay" data-mobile-overlay aria-hidden="true"></div>
 
 <script src="{{ 'header-javascript.js' | asset_url }}" defer></script>
 
