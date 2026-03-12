@@ -1,77 +1,250 @@
-<footer class="footer relative overflow-hidden bg-black">
-  <div class="footer__background">
-    {% render 'image',
-      image: section.settings.footer_desktop_background,
-      mobile_image: section.settings.footer_mobile_background,
-      alt: 'Footer Background',
-      width: '1440',
-      height: '500'
-    %}
-  </div>
-  <div class="footer__content flex flex-col justify-between w-full h-full py-6 px-4 lg:p-20">
-    <div class="footer__content-container flex flex-col gap-10 lg:gap-36 lg:flex-row justify-between pb-5">
-      <div class="footer__content-logo-container flex-1">
-        {% render 'logo', class_name: 'w-auto h-10', color: 'white', background: '#000' %}
-      </div>
-      <div class="footer__content-menu-container flex-[2]">
-        <ul class="footer__content-menu-list flex flex-col gap-8 lg:flex-row lg:gap-4">
-          {% for link in section.settings.menu.links %}
-            <li class="footer__content-menu-item flex-1">
-              <a
-                href="{{ link.url }}"
-                class="footer__content-menu-link text-white text-sm font-light lg:opacity-80 uppercase pb-2 lg:pb-3 no-underline hover:underline hover:underline-offset-4"
-              >
-                {{- link.title -}}
-              </a>
-              {% if link.links.size > 0 %}
-                <ul class="footer__content-menu-submenu-list flex flex-col gap-2 lg:gap-3">
-                  {% for child_link in link.links %}
-                    <li class="footer__content-menu-submenu-item leading-3">
-                      <a
-                        href="{{ child_link.url }}"
-                        class="footer__content-menu-submenu-link text-white text-sm leading-normal lg:text-base font-light opacity-70 uppercase lg:opacity-100"
-                      >
-                        {{- child_link.title -}}
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
+{{ 'footer.css' | asset_url | stylesheet_tag }}
+
+<footer class="footer" style="--footer-bg: {{ section.settings.bg_color }};">
+  <div class="footer__grid">
+
+    {%- comment -%} ── Col 1: Brand ── {%- endcomment -%}
+    <div class="footer__brand">
+      {%- if section.settings.logo_image != blank -%}
+        <a href="/" class="footer__logo-link">
+          <img
+            class="footer__logo-img"
+            src="{{ section.settings.logo_image | image_url: width: 300 }}"
+            alt="{{ section.settings.logo_image.alt | default: shop.name | escape }}"
+            width="160"
+            loading="lazy"
+          >
+        </a>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="footer__desc">{{ section.settings.description }}</p>
+      {%- endif -%}
+      <div class="footer__socials">
+        {%- if section.settings.facebook_url != blank -%}
+          <a href="{{ section.settings.facebook_url }}" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+            {%- if section.settings.facebook_icon != blank -%}
+              <img src="{{ section.settings.facebook_icon | image_url: width: 80 }}" alt="Facebook" width="24" height="24">
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.instagram_url != blank -%}
+          <a href="{{ section.settings.instagram_url }}" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            {%- if section.settings.instagram_icon != blank -%}
+              <img src="{{ section.settings.instagram_icon | image_url: width: 80 }}" alt="Instagram" width="24" height="24">
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.twitter_url != blank -%}
+          <a href="{{ section.settings.twitter_url }}" class="footer__social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            {%- if section.settings.twitter_icon != blank -%}
+              <img src="{{ section.settings.twitter_icon | image_url: width: 80 }}" alt="X" width="24" height="24">
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.youtube_url != blank -%}
+          <a href="{{ section.settings.youtube_url }}" class="footer__social-link" aria-label="YouTube" target="_blank" rel="noopener">
+            {%- if section.settings.youtube_icon != blank -%}
+              <img src="{{ section.settings.youtube_icon | image_url: width: 80 }}" alt="YouTube" width="24" height="24">
+            {%- endif -%}
+          </a>
+        {%- endif -%}
       </div>
     </div>
-    <div class="footer__content-copyright-container text-white text-base font-light pt-4 border-t-[1px] border-white opacity-70">
-      {{ section.settings.footer_copyright_text }}
+
+    {%- comment -%} ── Col 2 & 3: Nav (wrapped in a sub-grid on mobile) ── {%- endcomment -%}
+    <div class="footer__nav">
+      <h3 class="footer__nav-heading">{{ section.settings.company_heading }}</h3>
+      <ul class="footer__nav-list">
+        {%- for link in section.settings.company_menu.links -%}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
     </div>
+
+    <div class="footer__nav">
+      <h3 class="footer__nav-heading">{{ section.settings.products_heading }}</h3>
+      <ul class="footer__nav-list">
+        {%- for link in section.settings.products_menu.links -%}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- comment -%} ── Col 4: Contact ── {%- endcomment -%}
+    <div class="footer__contact-col">
+      <a href="#" class="footer__back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        Back to Top
+      </a>
+      {%- if section.settings.contact_heading != blank -%}
+        <h3 class="footer__contact-heading">{{ section.settings.contact_heading }}</h3>
+      {%- endif -%}
+      {%- if section.settings.contact_sub != blank -%}
+        <p class="footer__contact-sub">{{ section.settings.contact_sub }}</p>
+      {%- endif -%}
+      <div class="footer__contact-row">
+        {%- if section.settings.email != blank -%}
+          <span class="footer__contact-item"><strong>Email:</strong> {{ section.settings.email }}</span>
+        {%- endif -%}
+        {%- if section.settings.phone != blank -%}
+          <span class="footer__contact-item"><strong>Phone:</strong> {{ section.settings.phone }}</span>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.operating_hours != blank -%}
+        <p class="footer__hours-heading">Operating Hours:</p>
+        <p class="footer__hours">{{ section.settings.operating_hours }}</p>
+      {%- endif -%}
+    </div>
+
   </div>
+
+  {%- comment -%} ── Bottom bar ── {%- endcomment -%}
+  <div class="footer__bottom">
+    <p class="footer__copyright">{{ section.settings.copyright }}</p>
+  </div>
+
 </footer>
 
 {% schema %}
 {
-  "name": "t:general.footer",
-  "class": "footer-section spacing-block-start",
+  "name": "Footer",
+  "class": "footer-section",
   "settings": [
     {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1B5E5E"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo image"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Brand description",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+    },
+    {
+      "type": "header",
+      "content": "Social Links"
+    },
+    {
+      "type": "image_picker",
+      "id": "facebook_icon",
+      "label": "Facebook icon image"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_icon",
+      "label": "Instagram icon image"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "twitter_icon",
+      "label": "X (Twitter) icon image"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "X (Twitter) URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "youtube_icon",
+      "label": "YouTube icon image"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "text",
+      "id": "company_heading",
+      "label": "Company column heading",
+      "default": "Company"
+    },
+    {
       "type": "link_list",
-      "id": "menu",
-      "label": "t:labels.menu"
+      "id": "company_menu",
+      "label": "Company menu"
     },
     {
-      "type": "image_picker",
-      "id": "footer_desktop_background",
-      "label": "Footer Desktop Background"
+      "type": "text",
+      "id": "products_heading",
+      "label": "Products column heading",
+      "default": "Products"
     },
     {
-      "type": "image_picker",
-      "id": "footer_mobile_background",
-      "label": "Footer Mobile Background"
+      "type": "link_list",
+      "id": "products_menu",
+      "label": "Products menu"
     },
     {
-      "type": "richtext",
-      "id": "footer_copyright_text",
-      "label": "Footer Copyright Text"
+      "type": "header",
+      "content": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Contact heading",
+      "default": "Want to get in touch?"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_sub",
+      "label": "Contact subtext",
+      "default": "We'd love to hear from you!\nFor any feedback or queries, contact us on :"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "raya@wellie.in"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "+91 97407 57184"
+    },
+    {
+      "type": "text",
+      "id": "operating_hours",
+      "label": "Operating hours",
+      "default": "Mon- Sun, 10am to 6pm"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright text",
+      "default": "© 2025 Wellie. Powered by Shopify."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
     }
   ]
 }

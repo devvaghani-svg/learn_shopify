@@ -1,23 +1,23 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "type": "footer",
-  "name": "t:general.footer",
+  "name": "Footer",
   "sections": {
     "footer": {
       "type": "footer",
       "settings": {
-        "menu": "main-menu",
-        "footer_desktop_background": "shopify://shop_images/image_21392.png",
-        "footer_mobile_background": "shopify://shop_images/image_21392_1.png",
-        "footer_copyright_text": "<p>© 2026 inc. all rights reserved.</p>"
+        "bg_color": "#1B5E5E",
+        "logo_text": "Wellie",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+        "company_heading": "Company",
+        "company_menu": "company-menu",
+        "products_heading": "Products",
+        "products_menu": "products-menu",
+        "contact_heading": "Want to get in touch?",
+        "contact_sub": "We'd love to hear from you!\nFor any feedback or queries, contact us on :",
+        "email": "raya@wellie.in",
+        "phone": "+91 97407 57184",
+        "operating_hours": "Mon- Sun, 10am to 6pm",
+        "copyright": "© 2025 Wellie. Powered by Shopify."
       }
     }
   },

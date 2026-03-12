@@ -1,0 +1,205 @@
+/* ─── Footer ─── */
+.footer {
+  background: var(--footer-bg, #1B5E5E);
+  padding: 60px 60px 0;
+}
+
+/* ── Main grid ── */
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+  gap: 48px;
+  padding-bottom: 48px;
+}
+
+/* ── Col 1: Brand ── */
+.footer__logo {
+  font-family: 'Cafeteria';
+  font-size: 64px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin: 0 0 16px;
+}
+
+.footer__logo sup {
+  font-size: 18px;
+  vertical-align: super;
+}
+
+.footer__logo-img {
+  display: block;
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.footer__desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.65;
+  margin: 0 0 24px;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.footer__social-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.footer__social-link svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+}
+
+/* ── Col 2 & 3: Nav columns ── */
+.footer__nav-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+.footer__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__nav-list a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__nav-list a:hover {
+  color: #fff;
+}
+
+/* ── Col 4: Contact ── */
+.footer__back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 24px;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.footer__back-top:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer__contact-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.footer__contact-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 4px;
+  line-height: 1.5;
+}
+
+.footer__contact-row {
+  display: flex;
+  gap: 24px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.footer__contact-item {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer__contact-item strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.footer__hours-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin: 4px 0 2px;
+}
+
+.footer__hours {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* ── Bottom bar ── */
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer__copyright {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .footer {
+    padding: 40px 20px 0;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer__logo {
+    font-size: 52px;
+  }
+
+  .footer__nav-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer__back-top {
+    margin-bottom: 32px;
+  }
+}
