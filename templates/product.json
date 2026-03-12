@@ -1,12 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+
 {
   "sections": {
     "main": {
@@ -266,6 +258,88 @@
         "collection": "doggy",
         "products_count": 4
       }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can these treats replace my dog's regular diet?",
+            "answer": "No, these treats are designed to supplement a balanced diet, not replace it. We recommend introducing these to your pet in addition to their current diet to see optimal results."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I feed commercial food. Isn't that enough?",
+            "answer": "Commercial food provides basic nutrition, but our treats add targeted support like probiotics, prebiotics, and enzymes that most commercial foods lack."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the difference from syrups or pills?",
+            "answer": "Unlike syrups or pills, our treats are a natural, tasty format dogs love — no stress, no mess. Each chew delivers the same precise dose of active ingredients."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I give my dog curd - isn't that fine?",
+            "answer": "Curd is a good source of probiotics, but it varies in potency and doesn't contain the prebiotics and digestive enzymes our chews provide for complete gut support."
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I feed multiple types of your treats to my dog in a day?",
+            "answer": "Yes! Our treats are formulated to work together. You can combine different variants as part of your dog's daily routine without worry."
+          }
+        },
+        "cert_1": {
+          "type": "certificate",
+          "settings": {
+            "image_alt": "HACCP Certified"
+          }
+        },
+        "cert_2": {
+          "type": "certificate",
+          "settings": {
+            "image_alt": "GHP Certified"
+          }
+        },
+        "cert_3": {
+          "type": "certificate",
+          "settings": {
+            "image_alt": "ISO Certified"
+          }
+        },
+        "cert_4": {
+          "type": "certificate",
+          "settings": {
+            "image_alt": "FDA Approved"
+          }
+        },
+        "cert_5": {
+          "type": "certificate",
+          "settings": {
+            "image_alt": "fediaf"
+          }
+        },
+        "cert_6": {
+          "type": "certificate",
+          "settings": {
+            "image_alt": "GMP Certified"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "cert_1", "cert_2", "cert_3", "cert_4", "cert_5", "cert_6"],
+      "settings": {
+        "heading": "FAQ's",
+        "cert_heading": "Certified & Trusted",
+        "cert_bg_color": "#C8DC6E"
+      }
     }
   },
   "order": [
@@ -277,6 +351,7 @@
     "benefits",
     "steps",
     "right",
-    "related_product"
+    "related_product",
+    "faq"
   ]
 }

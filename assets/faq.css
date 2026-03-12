@@ -1,0 +1,192 @@
+/* ─── FAQ Section ─── */
+.faq {
+  background: #F9F3F1;
+  padding: 80px 40px;
+}
+
+/* ── Heading ── */
+.faq__heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0 0 48px;
+}
+
+/* ── List ── */
+.faq__list {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Item ── */
+.faq__item {
+  border-bottom: 1px solid #d8d0c8;
+}
+
+.faq__item:first-child {
+  border-top: 1px solid #d8d0c8;
+}
+
+/* ── Summary (question row) ── */
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.35;
+}
+
+/* Remove default marker */
+.faq__question::-webkit-details-marker { display: none; }
+.faq__question::marker { display: none; }
+
+/* ── Icon ── */
+.faq__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  color: #1a1a1a;
+}
+
+/* + lines */
+.faq__icon::before,
+.faq__icon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* horizontal bar */
+.faq__icon::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+/* vertical bar — hidden (becomes —) when open */
+.faq__icon::after {
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+details[open] .faq__icon::after {
+  opacity: 0;
+  transform: translateX(-50%) scaleY(0);
+}
+
+/* ── Answer ── */
+.faq__answer {
+  padding: 0 0 24px;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.65;
+  max-width: 90%;
+}
+
+/* ── Certificate strip ── */
+.faq__cert {
+  position: relative;
+  background: var(--cert-bg, #C8DC6E);
+  margin-top: 60px;
+  margin-left: -40px;
+  margin-right: -40px;
+  padding: 40px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Corner blobs */
+.faq__cert-blob {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50% 30% 50% 30%;
+}
+
+.faq__cert-blob--tl {
+  top: -20px;
+  left: -20px;
+}
+
+.faq__cert-blob--br {
+  bottom: -20px;
+  right: -20px;
+  border-radius: 30% 50% 30% 50%;
+}
+
+.faq__cert-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 28px;
+  letter-spacing: 0.01em;
+}
+
+.faq__cert-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.faq__cert-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .faq {
+    padding: 48px 20px;
+  }
+
+  .faq__heading {
+    font-size: 26px;
+    margin-bottom: 32px;
+  }
+
+  .faq__question {
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .faq__answer {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .faq__cert {
+    padding: 32px 20px;
+    margin-top: 40px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .faq__cert-logos {
+    gap: 16px;
+  }
+
+  .faq__cert-logo {
+    width: 60px;
+    height: 60px;
+  }
+}
