@@ -112,11 +112,14 @@
     },
     "ingredients": {
       "type": "ingredients",
-      "settings": {}
+      "settings": {
+        "heading": "Premium Ingredients"
+      }
     },
     "guide": {
       "type": "guide",
       "settings": {
+        "image": "shopify://shop_images/2150930449_1.png",
         "heading": "Feeding guide",
         "col_weight": "Dog Weight",
         "col_daily": "Daily",
