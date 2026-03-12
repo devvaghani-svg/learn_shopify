@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -55,9 +63,49 @@
         "heading": "Hear from our Customers!"
       }
     },
-    "description":{
-      "type":"description",
-      "settings":{}
+    "description": {
+      "type": "description",
+      "blocks": {
+        "video_PdxTwW": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify://shop_images/Instagram_story_-_6.png",
+            "video_url": ""
+          }
+        },
+        "video_jBdWDL": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify://shop_images/Instagram_story_-_9.png",
+            "video_url": ""
+          }
+        },
+        "video_JF3Qtm": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify://shop_images/Instagram_story_-_5.png",
+            "video_url": ""
+          }
+        },
+        "video_Q8fwWh": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify://shop_images/2150930449_1_1.png",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_PdxTwW",
+        "video_jBdWDL",
+        "video_JF3Qtm",
+        "video_Q8fwWh"
+      ],
+      "settings": {
+        "heading": "Love at First Bite.",
+        "subheading": "Real dogs. Real reactions. Zero convincing required.",
+        "show_description": true
+      }
     }
   },
   "order": [
