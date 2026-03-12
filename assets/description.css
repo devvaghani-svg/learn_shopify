@@ -160,9 +160,10 @@
   .desc__videos {
     display: flex;
     overflow-x: auto;
-    padding: 0 16px 8px;
+    padding: 0 0 8px 16px;
     gap: 10px;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
   }
 
   .desc__video-card {
@@ -171,6 +172,10 @@
     height: 210px;
     border-radius: 12px;
     scroll-snap-align: start;
+  }
+
+  .desc__video-card:last-child {
+    margin-right: 16px;
   }
 
   .desc__box {
