@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -215,6 +206,37 @@
         "bg_color": "#f9f3f1",
         "accent_color": "#2d8a7a"
       }
+    },
+    "right": {
+      "type": "right",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "title": "Supports Healthy Teeth and Gums",
+            "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "title": "Supports Healthy Teeth and Gums",
+            "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "title": "Supports Healthy Teeth and Gums",
+            "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        }
+      },
+      "block_order": ["item_1", "item_2", "item_3"],
+      "settings": {
+        "heading": "Is this right for my dog?",
+        "card_bg_color": "#B8E04A"
+      }
     }
   },
   "order": [
@@ -224,6 +246,7 @@
     "ingredients",
     "guide",
     "benefits",
-    "steps"
+    "steps",
+    "right"
   ]
 }

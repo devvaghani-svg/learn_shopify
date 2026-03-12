@@ -1,0 +1,144 @@
+{{ 'right.css' | asset_url | stylesheet_tag }}
+
+<section class="right" style="--right-card-bg: {{ section.settings.card_bg_color }};">
+  <div class="right__container">
+
+    {%- comment -%} ── Left: green card with dog image ── {%- endcomment -%}
+    <div class="right__card">
+      {%- if section.settings.card_image != blank -%}
+        <img
+          class="right__card-image"
+          src="{{ section.settings.card_image | image_url: width: 800 }}"
+          alt="{{ section.settings.card_image_alt | escape }}"
+          width="{{ section.settings.card_image.width }}"
+          height="{{ section.settings.card_image.height }}"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ── Right: heading + items ── {%- endcomment -%}
+    <div class="right__content">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="right__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      <div class="right__list">
+        {%- for block in section.blocks -%}
+          <div class="right__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              <img
+                class="right__thumb"
+                src="{{ block.settings.image | image_url: width: 200 }}"
+                alt="{{ block.settings.image_alt | escape }}"
+                width="90"
+                height="90"
+                loading="lazy"
+              >
+            {%- endif -%}
+            <div class="right__item-body">
+              {%- if block.settings.title != blank -%}
+                <h3 class="right__item-title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <p class="right__item-desc">{{ block.settings.description }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Right for my dog",
+  "tag": "section",
+  "class": "section-right",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Is this right for my dog?"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_image",
+      "label": "Dog image"
+    },
+    {
+      "type": "text",
+      "id": "card_image_alt",
+      "label": "Dog image alt text",
+      "default": "Dog"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card background color",
+      "default": "#B8E04A"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Thumbnail image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Thumbnail alt text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Supports Healthy Teeth and Gums"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Right for my dog",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Supports Healthy Teeth and Gums",
+            "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Supports Healthy Teeth and Gums",
+            "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Supports Healthy Teeth and Gums",
+            "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

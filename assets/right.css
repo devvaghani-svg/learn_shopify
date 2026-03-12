@@ -1,0 +1,152 @@
+/* ─── Right Section ─── */
+.right {
+  background: #F9F3F1;
+  padding: 80px 40px;
+}
+
+/* ── Container ── */
+.right__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* ── Left card ── */
+.right__card {
+  position: relative;
+  background: var(--right-card-bg, #B8E04A);
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 3 / 3.5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.right__card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* ── Right content ── */
+.right__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.right__heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 40px;
+  line-height: 1.2;
+}
+
+/* ── Items list ── */
+.right__list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Single item ── */
+.right__item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px 0;
+  border-bottom: 1px solid #e0d8d0;
+}
+
+.right__item:first-child {
+  padding-top: 0;
+}
+
+.right__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* ── Thumbnail ── */
+.right__thumb {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  border: 2px solid #E8186D;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Item body ── */
+.right__item-body {
+  flex: 1;
+}
+
+.right__item-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+
+.right__item-desc {
+  font-size: 15px;
+  font-weight: 400;
+  color: #555;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .right {
+    padding: 48px 20px;
+  }
+
+  .right__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Break content wrapper so heading, card, list can reorder */
+  .right__content {
+    display: contents;
+  }
+
+  .right__heading {
+    order: 1;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .right__card {
+    order: 2;
+    margin-bottom: 32px;
+    aspect-ratio: 4 / 3.5;
+  }
+
+  .right__list {
+    order: 3;
+  }
+
+  .right__thumb {
+    width: 80px;
+    height: 80px;
+  }
+
+  .right__item-title {
+    font-size: 16px;
+  }
+
+  .right__item-desc {
+    font-size: 14px;
+  }
+}
