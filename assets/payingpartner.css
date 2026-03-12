@@ -1,0 +1,55 @@
+/* ─── Paying Partner Section ─── */
+.payingpartner {
+  background: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 3px solid #1B5E5E;
+}
+
+.payingpartner__heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px;
+}
+
+/* ── Logos row ── */
+.payingpartner__logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.payingpartner__logo {
+  display: block;
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ── Note ── */
+.payingpartner__note {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1B5E5E;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .payingpartner {
+    padding: 32px 16px;
+  }
+
+  .payingpartner__logos {
+    gap: 16px;
+  }
+
+  .payingpartner__logo {
+    height: 26px;
+  }
+}

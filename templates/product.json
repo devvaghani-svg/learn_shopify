@@ -390,6 +390,22 @@
         "cert_heading": "Certified & Trusted",
         "cert_bg_color": "#c8dc6e"
       }
+    },
+    "Payingpartner": {
+      "type": "Payingpartner",
+      "blocks": {
+        "logo_1": { "type": "payment_logo", "settings": { "image_alt": "Mastercard" } },
+        "logo_2": { "type": "payment_logo", "settings": { "image_alt": "Visa" } },
+        "logo_3": { "type": "payment_logo", "settings": { "image_alt": "Paytm" } },
+        "logo_4": { "type": "payment_logo", "settings": { "image_alt": "UPI" } },
+        "logo_5": { "type": "payment_logo", "settings": { "image_alt": "Google Pay" } },
+        "logo_6": { "type": "payment_logo", "settings": { "image_alt": "PhonePe" } }
+      },
+      "block_order": ["logo_1", "logo_2", "logo_3", "logo_4", "logo_5", "logo_6"],
+      "settings": {
+        "heading": "Securely pay using",
+        "note": "Oh! and cash on delivery too :)"
+      }
     }
   },
   "order": [
@@ -402,6 +418,7 @@
     "steps",
     "right",
     "related_product",
-    "faq"
+    "faq",
+    "Payingpartner"
   ]
 }

@@ -1,0 +1,81 @@
+{{ 'payingpartner.css' | asset_url | stylesheet_tag }}
+
+<section class="payingpartner">
+
+  {%- if section.settings.heading != blank -%}
+    <p class="payingpartner__heading">{{ section.settings.heading }}</p>
+  {%- endif -%}
+
+  <div class="payingpartner__logos">
+    {%- for block in section.blocks -%}
+      {%- if block.settings.image != blank -%}
+        <img
+          class="payingpartner__logo"
+          src="{{ block.settings.image | image_url: width: 200 }}"
+          alt="{{ block.settings.image_alt | default: 'Payment method' | escape }}"
+          height="32"
+          loading="lazy"
+          {{ block.shopify_attributes }}
+        >
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.note != blank -%}
+    <p class="payingpartner__note">{{ section.settings.note }}</p>
+  {%- endif -%}
+
+</section>
+
+{% schema %}
+{
+  "name": "Paying Partners",
+  "tag": "section",
+  "class": "section-payingpartner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Securely pay using"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note below logos",
+      "default": "Oh! and cash on delivery too :)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "payment_logo",
+      "name": "Payment Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Alt text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Paying Partners",
+      "blocks": [
+        { "type": "payment_logo", "settings": { "image_alt": "Mastercard" } },
+        { "type": "payment_logo", "settings": { "image_alt": "Visa" } },
+        { "type": "payment_logo", "settings": { "image_alt": "Paytm" } },
+        { "type": "payment_logo", "settings": { "image_alt": "UPI" } },
+        { "type": "payment_logo", "settings": { "image_alt": "Google Pay" } },
+        { "type": "payment_logo", "settings": { "image_alt": "PhonePe" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
