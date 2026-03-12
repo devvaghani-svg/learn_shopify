@@ -1,12 +1,67 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "product",
-      "settings": {}
+      "settings": {
+        "ranking_badge": true,
+        "show_tax_note": true,
+        "show_variant_badges": true,
+        "show_benefits": true,
+        "show_coupons": true,
+        "show_marquee": true
+      }
     },
     "review": {
       "type": "customer-reviews",
-      "settings": {}
+      "blocks": {
+        "review_tabiKM": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/Rectangle_3463981.png",
+            "star_rating": 5,
+            "review_text": "My indie is super picky and she LOVES these Bellie Bites by Wellie. Her breath smells fresher!",
+            "avatar_image": "shopify://shop_images/Group_4116.png",
+            "reviewer_name": "Mr. Marc John"
+          }
+        },
+        "review_wKBDAF": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/Rectangle_3463981.png",
+            "star_rating": 5,
+            "review_text": "My indie is super picky and she LOVES these Bellie Bites by Wellie. Her breath smells fresher!",
+            "avatar_image": "shopify://shop_images/Group_4116.png",
+            "reviewer_name": "Mr. Marc John"
+          }
+        },
+        "review_MLPcCi": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/Rectangle_3463981.png",
+            "star_rating": 5,
+            "review_text": "My indie is super picky and she LOVES these Bellie Bites by Wellie. Her breath smells fresher!",
+            "avatar_image": "shopify://shop_images/Group_4116.png",
+            "reviewer_name": "Mr. Marc John"
+          }
+        }
+      },
+      "block_order": [
+        "review_tabiKM",
+        "review_wKBDAF",
+        "review_MLPcCi"
+      ],
+      "settings": {
+        "heading": "Hear from our Customers!"
+      }
     }
   },
   "order": [
