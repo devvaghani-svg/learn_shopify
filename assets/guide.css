@@ -1,0 +1,107 @@
+/* ─── Feeding Guide Section ─── */
+.guide {
+  background: #F9F3F1;
+  padding: 60px 40px;
+}
+
+/* ── Card ── */
+.guide__card {
+  background: #fff;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Image ── */
+.guide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+/* ── Content ── */
+.guide__content {
+  padding: 48px 48px 48px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.guide__heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: #3A3A3E;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* ── Table ── */
+.guide__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.guide__table th {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3A3A3E;
+  text-align: left;
+  padding: 0 0 16px;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.guide__table td {
+  font-size: 15px;
+  font-weight: 400;
+  color: #3A3A3E;
+  text-align: left;
+  padding: 16px 0;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.guide__table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .guide {
+    padding: 28px 16px 32px;
+  }
+
+  .guide__card {
+    grid-template-columns: 1fr;
+    border-radius: 16px;
+  }
+
+  .guide__img {
+    height: 260px;
+    border-radius: 12px;
+    padding: 12px 12px 0;
+  }
+
+  .guide__content {
+    padding: 20px 20px 28px;
+  }
+
+  .guide__heading {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .guide__table th {
+    font-size: 13px;
+    padding: 0 0 12px;
+  }
+
+  .guide__table td {
+    font-size: 13px;
+    padding: 12px 0;
+  }
+}

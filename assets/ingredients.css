@@ -1,0 +1,173 @@
+/* ─── Ingredients Section ─── */
+.ingr {
+  background: #F9F3F1;
+  padding: 60px 0;
+}
+
+/* ── Heading ── */
+.ingr__heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #3A3A3E;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+/* ── Scroll row — exactly 4 cards visible ── */
+.ingr__list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 0 40px 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 40px;
+}
+
+.ingr__list::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Card — 4 visible + peek of 5th ── */
+.ingr__card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  flex-shrink: 0;
+  width: calc((100vw - 80px - 60px) / 4.3);
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+
+.ingr__card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.ingr__card-img--placeholder {
+  width: 100%;
+  height: 220px;
+  background: #eee;
+}
+
+.ingr__card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* ── Title ── */
+.ingr__card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3A3A3E;
+}
+
+/* ── Description ── */
+.ingr__card-desc {
+  font-size: 14px;
+  line-height: 21px;
+  color: #3A3A3E;
+  font-weight: 400;
+}
+
+.ingr__card-desc.is-collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ingr__read-more {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3A3A3E;
+  cursor: pointer;
+  display: inline;
+}
+
+/* ── Tags ── */
+.ingr__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.ingr__tag {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #025A60;
+  border: 1.5px solid transparent;
+  border-radius: 20px;
+  padding: 4px 12px;
+  background-color: #025A601A;
+  white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .ingr {
+    padding: 28px 16px 32px;
+  }
+
+  .ingr__heading {
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .ingr__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow-x: unset;
+    padding: 0;
+    gap: 12px;
+    scroll-snap-type: unset;
+  }
+
+  .ingr__card {
+    width: 100%;
+  }
+
+  .ingr__card-img,
+  .ingr__card-img--placeholder {
+    height: 150px;
+  }
+
+  .ingr__card-body {
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .ingr__card-title {
+    font-size: 15px;
+  }
+
+  .ingr__card-desc {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .ingr__read-more {
+    font-size: 13px;
+  }
+
+  .ingr__tag {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+}

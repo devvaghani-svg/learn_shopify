@@ -1,0 +1,44 @@
+{%- comment -%}
+  Renders a single ingredient card.
+  Accepts:
+    - ingredient: {Object} metaobject entry with fields: image, title, description, tags
+{%- endcomment -%}
+
+<div class="ingr__card">
+
+  {%- if ingredient.image != blank -%}
+    <img
+      class="ingr__card-img"
+      src="{{ ingredient.image | image_url: width: 600 }}"
+      alt="{{ ingredient.title | escape }}"
+      width="280"
+      height="220"
+      loading="lazy"
+    >
+  {%- else -%}
+    <div class="ingr__card-img--placeholder"></div>
+  {%- endif -%}
+
+  <div class="ingr__card-body">
+
+    {%- if ingredient.title != blank -%}
+      <h3 class="ingr__card-title">{{ ingredient.title }}</h3>
+    {%- endif -%}
+
+    {%- if ingredient.description != blank -%}
+      <p class="ingr__card-desc is-collapsed">{{ ingredient.description }}</p>
+      <button class="ingr__read-more" data-ingr-readmore type="button">Read more</button>
+    {%- endif -%}
+
+    {%- assign tags = ingredient.tags.value -%}
+    {%- if tags != blank -%}
+      <div class="ingr__tags">
+        {%- for tag in tags -%}
+          <span class="ingr__tag">{{ tag }}</span>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+
+</div>

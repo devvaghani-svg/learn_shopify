@@ -109,11 +109,26 @@
         "subheading": "Real dogs. Real reactions. Zero convincing required.",
         "show_description": true
       }
+    },
+    "ingredients": {
+      "type": "ingredients",
+      "settings": {}
+    },
+    "guide": {
+      "type": "guide",
+      "settings": {
+        "heading": "Feeding guide",
+        "col_weight": "Dog Weight",
+        "col_daily": "Daily",
+        "col_monthly": "Monthly QTY"
+      }
     }
   },
   "order": [
     "main",
     "review",
-    "description"
+    "description",
+    "ingredients",
+    "guide"
   ]
 }

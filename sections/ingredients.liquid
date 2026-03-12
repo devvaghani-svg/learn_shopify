@@ -1,0 +1,42 @@
+{{ 'ingredients.css' | asset_url | stylesheet_tag }}
+
+{%- assign ingredients = product.metafields.custom.ingredients_reference.value -%}
+
+{%- if ingredients != blank -%}
+  <section class="ingr">
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ingr__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="ingr__list">
+      {%- for ingredient in ingredients -%}
+        {%- render 'ingredient-card', ingredient: ingredient -%}
+      {%- endfor -%}
+    </div>
+
+  </section>
+{%- endif -%}
+
+<script src="{{ 'ingredients.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Ingredients",
+  "tag": "section",
+  "class": "section-ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Premium Ingredients"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients"
+    }
+  ]
+}
+{% endschema %}

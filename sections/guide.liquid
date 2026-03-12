@@ -1,0 +1,94 @@
+{{ 'guide.css' | asset_url | stylesheet_tag }}
+
+{%- assign guide_rows = product.metafields.custom.guide_reference.value -%}
+
+{%- if guide_rows != blank -%}
+  <section class="guide">
+    <div class="guide__card">
+
+      {%- comment -%} ── IMAGE ── {%- endcomment -%}
+      {%- if product.featured_image -%}
+        <img
+          class="guide__img"
+          src="{{ product.featured_image | image_url: width: 900 }}"
+          alt="{{ product.title | escape }}"
+          width="600"
+          height="600"
+          loading="lazy"
+        >
+      {%- endif -%}
+
+      {%- comment -%} ── CONTENT ── {%- endcomment -%}
+      <div class="guide__content">
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="guide__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        <table class="guide__table">
+          <thead>
+            <tr>
+              <th>{{ section.settings.col_weight }}</th>
+              <th>{{ section.settings.col_daily }}</th>
+              <th>{{ section.settings.col_monthly }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for row in guide_rows -%}
+              <tr>
+                <td>{{ row.dog_weight }}</td>
+                <td>{{ row.daily }}</td>
+                <td>{{ row.monthly_qty }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Feeding Guide",
+  "tag": "section",
+  "class": "section-guide",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Feeding guide"
+    },
+    {
+      "type": "header",
+      "content": "Column Headers"
+    },
+    {
+      "type": "text",
+      "id": "col_weight",
+      "label": "Column 1 label",
+      "default": "Dog Weight"
+    },
+    {
+      "type": "text",
+      "id": "col_daily",
+      "label": "Column 2 label",
+      "default": "Daily"
+    },
+    {
+      "type": "text",
+      "id": "col_monthly",
+      "label": "Column 3 label",
+      "default": "Monthly QTY"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feeding Guide"
+    }
+  ]
+}
+{% endschema %}
