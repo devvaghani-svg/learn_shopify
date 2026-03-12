@@ -6,7 +6,7 @@
 
 .reviews__heading {
   text-align: center;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
   color: #3A3A3E;
   margin-bottom: 40px;
@@ -58,7 +58,7 @@
 /* ── Stars ── */
 .reviews__stars {
   display: flex;
-  gap: 3px;
+  gap: 6px;
 }
 
 .reviews__star {
@@ -73,8 +73,9 @@
 
 /* ── Review text ── */
 .reviews__text {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
+  font-weight: 400;
   color: #3A3A3E;
   flex: 1;
 }
@@ -96,8 +97,8 @@
 }
 
 .reviews__name {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   color: #3A3A3E;
 }
 
