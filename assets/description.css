@@ -140,35 +140,58 @@
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .desc {
-    padding: 40px 0 40px;
+    padding: 28px 0 32px;
+  }
+
+  .desc__header {
+    margin-bottom: 20px;
+    padding: 0 16px;
   }
 
   .desc__heading {
-    font-size: 26px;
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .desc__subheading {
+    font-size: 13px;
   }
 
   .desc__videos {
     display: flex;
     overflow-x: auto;
     padding: 0 16px 8px;
-    gap: 12px;
+    gap: 10px;
     scroll-snap-type: x mandatory;
   }
 
   .desc__video-card {
-    min-width: 200px;
-    width: 200px;
-    height: 260px;
+    min-width: 160px;
+    width: 160px;
+    height: 210px;
+    border-radius: 12px;
     scroll-snap-align: start;
   }
 
-  .desc__modal-inner {
-    width: 95%;
-    aspect-ratio: 9 / 16;
+  .desc__box {
+    margin: 20px 16px 0;
+    padding: 16px;
+    border-radius: 10px;
   }
 
-  .desc__box {
-    margin: 28px 16px 0;
-    padding: 20px;
+  .desc__box-label {
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+  }
+
+  .desc__box-content {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .desc__read-more {
+    font-size: 13px;
+    margin-top: 10px;
   }
 }

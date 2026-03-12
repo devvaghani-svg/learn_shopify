@@ -150,12 +150,12 @@
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .reviews {
-    padding: 40px 20px;
+    padding: 28px 16px 32px;
   }
 
   .reviews__heading {
-    font-size: 24px;
-    margin-bottom: 28px;
+    font-size: 22px;
+    margin-bottom: 20px;
   }
 
   .reviews__grid {
@@ -164,5 +164,41 @@
 
   .reviews__slider {
     display: block;
+  }
+
+  .reviews__slider-track .reviews__card-img {
+    height: 180px;
+  }
+
+  .reviews__card-body {
+    padding: 14px 12px;
+    gap: 6px;
+  }
+
+  .reviews__quote {
+    font-size: 22px;
+  }
+
+  .reviews__star {
+    width: 16px;
+    height: 16px;
+  }
+
+  .reviews__text {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .reviews__avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .reviews__name {
+    font-size: 13px;
+  }
+
+  .reviews__dots {
+    margin-top: 16px;
   }
 }
