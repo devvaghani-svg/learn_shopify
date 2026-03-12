@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -213,6 +222,8 @@
         "item_1": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_3463979_1.png",
+            "image_alt": "",
             "title": "Supports Healthy Teeth and Gums",
             "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
           }
@@ -220,6 +231,8 @@
         "item_2": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_3463979.png",
+            "image_alt": "",
             "title": "Supports Healthy Teeth and Gums",
             "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
           }
@@ -227,15 +240,23 @@
         "item_3": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_3463979_2.png",
+            "image_alt": "",
             "title": "Supports Healthy Teeth and Gums",
             "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
           }
         }
       },
-      "block_order": ["item_1", "item_2", "item_3"],
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3"
+      ],
       "settings": {
         "heading": "Is this right for my dog?",
-        "card_bg_color": "#B8E04A"
+        "card_image": "shopify://shop_images/2150930449_1_2.png",
+        "card_image_alt": "Dog",
+        "card_bg_color": "#b8e04a"
       }
     }
   },
