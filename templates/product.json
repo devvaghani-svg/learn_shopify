@@ -66,6 +66,13 @@
     "description": {
       "type": "description",
       "blocks": {
+        "video_44wKzH": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify://shop_images/Instagram_story_-_9.png",
+            "video_url": ""
+          }
+        },
         "video_PdxTwW": {
           "type": "video",
           "settings": {
@@ -96,6 +103,7 @@
         }
       },
       "block_order": [
+        "video_44wKzH",
         "video_PdxTwW",
         "video_jBdWDL",
         "video_JF3Qtm",
