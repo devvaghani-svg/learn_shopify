@@ -1,0 +1,167 @@
+/* ─── Customer Reviews Section ─── */
+.reviews {
+  background: #F9F3F1;
+  padding: 60px 40px;
+}
+
+.reviews__heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #3A3A3E;
+  margin-bottom: 40px;
+}
+
+/* ── Grid (desktop) ── */
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.reviews__card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.reviews__card-img {
+  width: 140px;
+  min-width: 140px;
+  object-fit: cover;
+  display: block;
+  align-self: stretch;
+}
+
+.reviews__card-body {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* ── Quote icon ── */
+.reviews__quote {
+  font-size: 28px;
+  font-weight: 900;
+  color: #E8558A;
+  line-height: 1;
+}
+
+/* ── Stars ── */
+.reviews__stars {
+  display: flex;
+  gap: 3px;
+}
+
+.reviews__star {
+  width: 20px;
+  height: 20px;
+  fill: #F5A623;
+}
+
+.reviews__star--empty {
+  fill: #E0E0E0;
+}
+
+/* ── Review text ── */
+.reviews__text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #3A3A3E;
+  flex: 1;
+}
+
+/* ── Author ── */
+.reviews__author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.reviews__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.reviews__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3A3A3E;
+}
+
+/* ── Mobile slider ── */
+.reviews__slider {
+  display: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.reviews__slider-track {
+  display: flex;
+  transition: transform 0.35s ease;
+}
+
+.reviews__slider-track .reviews__card {
+  min-width: 100%;
+  flex-direction: column;
+}
+
+.reviews__slider-track .reviews__card-img {
+  width: 100%;
+  min-width: unset;
+  height: 220px;
+}
+
+.reviews__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.reviews__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #D9D9D9;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.reviews__dot.is-active {
+  background: #E8558A;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .reviews {
+    padding: 40px 20px;
+  }
+
+  .reviews__heading {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+
+  .reviews__grid {
+    display: none;
+  }
+
+  .reviews__slider {
+    display: block;
+  }
+}
