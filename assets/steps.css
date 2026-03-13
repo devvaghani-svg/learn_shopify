@@ -1,7 +1,7 @@
 /* ─── Steps Section ─── */
 .steps {
   background: var(--steps-bg, #F9F3F1);
-  padding: 80px 40px;
+  padding: 80px 80px;
 }
 
 /* ── Container ── */

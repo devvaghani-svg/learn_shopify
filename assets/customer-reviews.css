@@ -1,7 +1,7 @@
 /* ─── Customer Reviews Section ─── */
 .reviews {
   background: #F9F3F1;
-  padding: 60px 40px;
+  padding: 60px 80px;
 }
 
 .reviews__heading {
@@ -17,8 +17,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /* ── Card ── */

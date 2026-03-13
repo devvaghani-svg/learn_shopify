@@ -10,8 +10,7 @@
 
   var imageSrcs = [];
   thumbBtns.forEach(function (btn) {
-    var img = btn.querySelector('img');
-    if (img) imageSrcs.push(img.src.replace('_150x150', '_900x900'));
+    imageSrcs.push(btn.dataset.fullSrc);
   });
 
   function setImage(idx) {

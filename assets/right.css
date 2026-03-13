@@ -1,7 +1,7 @@
 /* ─── Right Section ─── */
 .right {
   background: #F9F3F1;
-  padding: 80px 40px;
+  padding: 80px 80px;
 }
 
 /* ── Container ── */
@@ -9,8 +9,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
   align-items: center;
 }
 

@@ -25,6 +25,7 @@ body {
   min-height: 100vh;
   height: 100%;
   font-family: var(--font-primary--family);
+  background-color: #F9F3F1;
 }
 
 img,

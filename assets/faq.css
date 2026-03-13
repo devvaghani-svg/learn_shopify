@@ -1,7 +1,7 @@
 /* ─── FAQ Section ─── */
 .faq {
   background: #F9F3F1;
-  padding: 80px 40px;
+  padding: 80px 80px;
 }
 
 /* ── Heading ── */
@@ -15,8 +15,6 @@
 
 /* ── List ── */
 .faq__list {
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 /* ── Item ── */

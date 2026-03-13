@@ -1,7 +1,7 @@
 /* ─── Related Products Section ─── */
 .related-product {
   background: #F9F3F1;
-  padding: 80px 40px;
+  padding: 80px 80px;
 }
 
 /* ── Heading ── */
@@ -19,8 +19,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /* ── Card ── */

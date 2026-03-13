@@ -1,7 +1,8 @@
 
 
   .site-header {
-    background-color: #f5ede3;
+    background-color: #F9F3F1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border-top: 3px solid #1d5c58;
     position: fixed;
     top: 0;
@@ -16,7 +17,9 @@
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 14px 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 14px 0;
   }
 
   /* ── Left slot ── */
@@ -349,7 +352,7 @@
   /* ── Desktop breakpoint ── */
   @media (min-width: 768px) {
     .site-header__inner {
-      padding: 0 40px;
+      padding: 0;
       height: 68px;
     }
 

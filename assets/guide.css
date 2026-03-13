@@ -1,7 +1,7 @@
 /* ─── Feeding Guide Section ─── */
 .guide {
   background: #F9F3F1;
-  padding: 60px 40px;
+  padding: 60px 80px;
 }
 
 /* ── Card ── */
@@ -11,8 +11,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /* ── Image ── */
