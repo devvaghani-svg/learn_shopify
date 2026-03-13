@@ -1,0 +1,106 @@
+{{ 'check.css' | asset_url | stylesheet_tag }}
+
+<section class="check">
+  <div class="check__card">
+
+    {%- comment -%} ── Left: Image ── {%- endcomment -%}
+    {%- if section.settings.image != blank -%}
+      <div class="check__media">
+        <img
+          class="check__img"
+          src="{{ section.settings.image | image_url: width: 800 }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="560"
+          height="360"
+          loading="lazy"
+        >
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── Right: Content ── {%- endcomment -%}
+    <div class="check__body">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="check__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="check__desc">{{ section.settings.description }}</p>
+      {%- endif -%}
+      {%- if section.settings.message != blank -%}
+        <button
+          type="button"
+          class="check__copy-btn"
+          data-copy-message="{{ section.settings.message | escape }}"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>{{ section.settings.button_label | default: 'Copy Message' }}</span>
+        </button>
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.check__copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const msg = btn.dataset.copyMessage;
+      navigator.clipboard.writeText(msg).then(() => {
+        const span = btn.querySelector('span');
+        span.textContent = 'Copied!';
+        setTimeout(() => { span.textContent = btn.closest('section').querySelector('.check__copy-btn span').dataset.original || '{{ section.settings.button_label | default: "Copy Message" }}'; }, 2000);
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Check with Vet",
+  "tag": "section",
+  "class": "section-check",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Check with my vet"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown."
+    },
+    {
+      "type": "textarea",
+      "id": "message",
+      "label": "Message to copy",
+      "default": "Hi Doctor, I wanted to check if Wellie's treats are suitable for my dog."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Copy Message"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Check with Vet"
+    }
+  ]
+}
+{% endschema %}

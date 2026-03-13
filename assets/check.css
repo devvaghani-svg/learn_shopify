@@ -1,0 +1,105 @@
+/* ─── Check Section ─── */
+.check {
+  background: #F9F3F1;
+  padding: 60px 185px;
+}
+
+/* ── Card ── */
+.check__card {
+  background: #fff;
+  border-radius: 12px;
+  border: 0.6px solid #ede8e3;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  align-items: stretch;
+}
+
+/* ── Left: Image ── */
+.check__media {
+  flex-shrink: 0;
+}
+
+.check__img {
+  width: 532px;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Right: Content ── */
+.check__body {
+  flex: 1;
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.check__heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3A3A3E;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.check__desc {
+  font-size: 15px;
+  font-weight: 400;
+  color: #555;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Copy button ── */
+.check__copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #025A601A;
+  border: 1px solid #025A60;
+  border-radius: 50px;
+  color: #025A60;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: fit-content;
+}
+
+.check__copy-btn:hover {
+  background: #025A6030;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .check {
+    padding: 28px 16px 40px;
+  }
+
+  .check__card {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .check__img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .check__body {
+    padding: 24px 20px;
+    gap: 12px;
+  }
+
+  .check__heading {
+    font-size: 22px;
+  }
+
+  .check__desc {
+    font-size: 14px;
+  }
+}

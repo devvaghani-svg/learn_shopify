@@ -1,30 +1,26 @@
 /* ─── FAQ Section ─── */
 .faq {
   background: #F9F3F1;
-  padding: 80px 80px;
+  padding: 80px 185px 110px;
 }
 
 /* ── Heading ── */
 .faq__heading {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #3A3A3E;
   text-align: center;
   margin: 0 0 48px;
+  line-height: 42px;
 }
 
 /* ── List ── */
-.faq__list {
-}
 
 /* ── Item ── */
 .faq__item {
   border-bottom: 1px solid #d8d0c8;
 }
 
-.faq__item:first-child {
-  border-top: 1px solid #d8d0c8;
-}
 
 /* ── Summary (question row) ── */
 .faq__question {
@@ -35,10 +31,10 @@
   padding: 24px 0;
   cursor: pointer;
   list-style: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  color: #1a1a1a;
-  line-height: 1.35;
+  color: #3A3A3E;
+  line-height: 100%;
 }
 
 /* Remove default marker */
@@ -90,9 +86,9 @@ details[open] .faq__icon::after {
 /* ── Answer ── */
 .faq__answer {
   padding: 0 0 24px;
-  font-size: 15px;
-  color: #444;
-  line-height: 1.65;
+  font-size: 16px;
+  color: #3A3A3E;
+  line-height: 21px;
   max-width: 90%;
 }
 
@@ -101,9 +97,9 @@ details[open] .faq__icon::after {
   position: relative;
   background: var(--cert-bg, #C8DC6E);
   margin-top: 60px;
-  margin-left: -40px;
-  margin-right: -40px;
-  padding: 40px 60px;
+  margin-left: -185px;
+  margin-right: -185px;
+  padding: 40px 185px;
   text-align: center;
   overflow: hidden;
 }
@@ -129,8 +125,9 @@ details[open] .faq__icon::after {
 }
 
 .faq__cert-heading {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
+  line-height: 26px;
   color: #1a1a1a;
   margin: 0 0 28px;
   letter-spacing: 0.01em;
@@ -140,7 +137,7 @@ details[open] .faq__icon::after {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 24px;
+  gap: 40px;
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;

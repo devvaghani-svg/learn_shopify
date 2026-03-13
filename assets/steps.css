@@ -1,16 +1,17 @@
 /* ─── Steps Section ─── */
 .steps {
   background: var(--steps-bg, #F9F3F1);
-  padding: 80px 80px;
+  padding: 20px 80px;
 }
 
 /* ── Container ── */
 .steps__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 22px;
+  width: 1280px;
+  height: 628px;
+  max-width: 100%;
   align-items: start;
 }
 
@@ -18,7 +19,7 @@
 .steps__heading {
   font-size: 36px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #3A3A3E;
   margin: 0 0 48px;
   text-align: right;
   line-height: 1.2;
@@ -49,20 +50,20 @@
   align-items: center;
   justify-content: center;
   padding: 4px 14px;
-  border: 1.5px solid var(--steps-accent, #025A60);
+  border: 1px solid #025A60;
   border-radius: 20px;
-  color: var(--steps-accent, #025A60);
+  color:#025A60;
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
-  background: transparent;
+  background: #FFFFFF;
 }
 
 /* ── Dashed line ── */
 .steps__line {
   flex: 1;
   width: 0;
-  border-left: 2px dashed var(--steps-accent, #2D8A7A);
+  border-left: 1px dashed var(--steps-accent, #2D8A7A);
   margin: 6px 0;
   min-height: 40px;
 }
@@ -84,7 +85,7 @@
 .steps__item-title {
   font-size: 24px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #3A3A3E;
   margin: 2px 0 14px;
   line-height: 1.25;
 }
@@ -103,7 +104,7 @@
   position: relative;
   padding-left: 18px;
   font-size: 18px;
-  color: #3a3a3a;
+  color: #3A3A3E;
   line-height: 1.55;
   font-weight: 400;
 }
@@ -123,55 +124,79 @@
 
 .steps__image {
   display: block;
-  width: 100%;
-  max-height: 560px;
+  width: 628px;
+  height: 628px;
+  max-width: 100%;
   object-fit: cover;
-  border-radius: 16px;
-  border: 2px solid #d0c8c0;
+  border-radius: 8px;
+  border: 1px solid #3A3A3E;
 }
+.steps__content {
+  padding-right: 80px;
+  padding-top: 70px;
+}
+
 
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .steps {
-    padding: 48px 20px;
+    padding: 28px 16px 40px;
   }
 
-  /* Flatten container into a flex column so children can be reordered */
+  /* Single column, reorder: heading → image → list */
   .steps__container {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    height: auto;
+    gap: 24px;
   }
 
-  /* Break .steps__content out of flow so heading + list are direct flex children */
   .steps__content {
     display: contents;
   }
 
   .steps__heading {
     order: 1;
-    font-size: 28px;
+    font-size: 24px;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
-  /* Image second */
+  /* Image full width below heading */
   .steps__media {
     order: 2;
     position: static;
-    margin-bottom: 36px;
   }
 
-  /* Steps list third */
+  .steps__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+  }
+
+  /* Steps list below image */
   .steps__list {
     order: 3;
+    gap: 0;
+  }
+
+  .steps__content {
+    padding-right: 0;
+    padding-top: 0;
   }
 
   .steps__item-title {
     font-size: 18px;
+    margin-bottom: 10px;
   }
 
   .steps__bullets li {
     font-size: 14px;
+  }
+
+  .steps__badge {
+    font-size: 13px;
+    padding: 3px 12px;
   }
 }

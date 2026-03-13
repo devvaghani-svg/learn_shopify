@@ -1,7 +1,7 @@
 /* ─── Footer ─── */
 .footer {
-  background: var(--footer-bg, #1B5E5E);
-  padding: 60px 60px 0;
+  background: #025A60;
+  padding: 60px 80px 0;
 }
 
 /* ── Main grid ── */
@@ -46,7 +46,7 @@
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.65;
-  margin: 0 0 24px;
+  margin: 0 0 15px;
 }
 
 .footer__socials {
@@ -59,38 +59,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.15);
+  width: 32px;
+  height: 32px;
   color: #fff;
   text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.footer__social-link:hover {
-  background: rgba(255, 255, 255, 0.3);
 }
 
 .footer__social-link svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   fill: currentColor;
   flex-shrink: 0;
 }
 
 .footer__social-link img {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
   display: block;
 }
 
 /* ── Col 2 & 3: Nav columns ── */
 .footer__nav-heading {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: #FAF1EC;
   margin: 0 0 20px;
 }
 
@@ -105,7 +98,7 @@
 
 .footer__nav-list a {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #FAF1EC;
   text-decoration: none;
   transition: color 0.2s ease;
 }

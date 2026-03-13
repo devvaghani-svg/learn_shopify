@@ -260,6 +260,15 @@
         "card_bg_color": "#b8e04a"
       }
     },
+    "check": {
+      "type": "check",
+      "settings": {
+        "heading": "Check with my vet",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.",
+        "message": "Hi Doctor, I wanted to check if Wellie's treats are suitable for my dog.",
+        "button_label": "Copy Message"
+      }
+    },
     "related_product": {
       "type": "related_product",
       "settings": {
@@ -489,6 +498,7 @@
     "steps",
     "right",
     "related_product",
+    "check",
     "faq",
     "Payingpartner"
   ]
