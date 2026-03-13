@@ -86,11 +86,11 @@
     {%- comment -%} Right slot: icons {%- endcomment -%}
     <div class="site-header__right">
       <button type="button" class="site-header__icon-btn" aria-label="Search">
-        {% render 'icon-search', class_name: 'w-5 h-5' %}
+        {{ 'search.svg' | asset_url | img_tag }}
       </button>
 
       <button type="button" class="site-header__icon-btn site-header__icon-account" aria-label="Account">
-        {% render 'icon-account', class_name: 'w-5 h-5' %}
+        {{ 'account.svg' | asset_url | img_tag }}
       </button>
 
       <button
@@ -99,7 +99,7 @@
         aria-label="Open cart"
         data-cart-open-trigger
       >
-        {% render 'icon-cart', class_name: 'w-5 h-5' %}
+        {{ 'cart.svg' | asset_url | img_tag }}
         {%- if cart.item_count > 0 -%}
           <span class="site-header__cart-count">{{ cart.item_count }}</span>
         {%- endif -%}
