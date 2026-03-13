@@ -10,8 +10,14 @@
 {
   "current": {
     "type_primary_font": "karla_n4",
-    "logo": "shopify://shop_images/zahara.webp",
+    "logo": "shopify://shop_images/Vector_8c7ef25e-1a2a-483d-9356-0383b9bbdad4.png",
     "favicon": "",
+    "sections": {
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {}
+      }
+    },
     "content_for_index": []
   }
 }
