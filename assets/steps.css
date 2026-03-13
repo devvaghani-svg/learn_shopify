@@ -137,6 +137,30 @@
 }
 
 
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .steps {
+    padding: 20px 40px;
+  }
+
+  .steps__container {
+    width: 100%;
+    height: auto;
+    gap: 16px;
+  }
+
+  .steps__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .steps__content {
+    padding-right: 20px;
+    padding-top: 40px;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .steps {

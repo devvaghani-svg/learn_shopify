@@ -423,16 +423,6 @@ line-height: 21px;
   background: #174a47;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .pdp__coupons {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .pdp__coupon {
-    max-width: 100%;
-  }
-}
-
 /* ─── Coupons ─── */
 .pdp__coupons {
   display: grid;
@@ -534,6 +524,36 @@ line-height: 21px;
 
 .pdp__copy-btn svg {
   pointer-events: none;
+}
+
+/* ─── Tablet ─── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pdp__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  .pdp__atc-btn {
+    width: auto;
+    flex: 1;
+  }
+
+  .pdp__buy-now-btn {
+    width: 100%;
+  }
+
+  .pdp__benefit {
+    width: 100%;
+  }
+
+  .pdp__coupons {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pdp__coupon {
+    max-width: 100%;
+  }
 }
 
 /* ─── Mobile ─── */

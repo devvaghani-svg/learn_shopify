@@ -138,6 +138,23 @@
   display: block;
 }
 
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .desc {
+    padding: 20px 40px 60px;
+  }
+
+  .desc__videos {
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 0 40px 12px;
+  }
+
+  .desc__box {
+    margin: 40px 0 0;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .desc {

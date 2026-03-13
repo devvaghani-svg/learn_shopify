@@ -82,6 +82,27 @@
   background: #025A6030;
 }
 
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .check {
+    padding: 40px 80px;
+  }
+
+  .check__card {
+    flex-direction: column;
+  }
+
+  .check__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .check__body {
+    padding: 32px 32px;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .check {

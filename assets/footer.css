@@ -186,6 +186,22 @@
   margin: 0;
 }
 
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer {
+    padding: 40px 40px 0;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer__nav-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .footer {

@@ -159,6 +159,21 @@
   background: #E8558A;
 }
 
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .reviews {
+    padding: 40px 40px;
+  }
+
+  .reviews__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews__card {
+    width: 100%;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .reviews {

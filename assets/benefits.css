@@ -131,6 +131,26 @@
   width: 90%;
 }
 
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .benefits {
+    padding: 40px 40px;
+  }
+
+  .benefits__inner {
+    width: 100%;
+    height: auto;
+    padding: 48px 40px 80px;
+  }
+
+  .benefits__grid {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    gap: 28px;
+    padding: 0;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .benefits {

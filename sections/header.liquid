@@ -1,5 +1,11 @@
 {{ 'header.css' | asset_url | stylesheet_tag}}
 
+{%- if section.settings.announcement_text != blank -%}
+  <div class="announcement-bar">
+    <p class="announcement-bar__text">{{ section.settings.announcement_text }}</p>
+  </div>
+{%- endif -%}
+
 <header class="site-header" role="banner">
   <div class="site-header__inner">
 
@@ -170,6 +176,12 @@
 {
   "name": "t:general.header",
   "settings": [
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement bar text",
+      "default": "15% Off over ₹5000 Use Code WELLIEWOW"
+    },
     {
       "type": "link_list",
       "id": "menu",

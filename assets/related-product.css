@@ -122,13 +122,24 @@
   background: #144848;
 }
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .related-product {
+    padding: 20px 40px;
+  }
+
   .related-product__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .related-product__card {
+    width: 100%;
+    height: auto;
   }
 }
 
+/* ── Responsive ── */
 @media (max-width: 767px) {
   .related-product {
     padding: 28px 16px 40px;

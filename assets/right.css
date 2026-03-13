@@ -105,6 +105,37 @@
   line-height: 1.55;
 }
 
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .right {
+    padding: 40px 40px;
+  }
+
+  .right__container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .right__card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .right__heading {
+    font-size: 28px;
+  }
+
+  .right__item-title {
+    font-size: 18px;
+  }
+
+  .right__item-desc {
+    font-size: 15px;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .right {

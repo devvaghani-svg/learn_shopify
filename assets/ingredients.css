@@ -125,6 +125,13 @@
   white-space: nowrap;
 }
 
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .ingr {
+    padding: 28px 40px 32px;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .ingr {
