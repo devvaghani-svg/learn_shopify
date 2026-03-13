@@ -60,14 +60,22 @@
   gap: 8px;
   padding: 10px 20px;
   background: #025A601A;
-  border: 1px solid #025A60;
+  border: 0.5px solid #025A601A;
   border-radius: 50px;
   color: #025A60;
-  font-size: 15px;
-  font-weight: 500;
   cursor: pointer;
   transition: background 0.2s;
   width: fit-content;
+}
+
+.check__copy-btn span {
+  font-family: 'Cabin';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  color: #025A60;
+  vertical-align: middle;
 }
 
 .check__copy-btn:hover {
