@@ -93,17 +93,16 @@
         {{ 'account.svg' | asset_url | img_tag }}
       </button>
 
-      <button
-        type="button"
+      <a
+        href="{{ routes.cart_url }}"
         class="site-header__icon-btn"
         aria-label="Open cart"
-        data-cart-open-trigger
       >
         {{ 'cart.svg' | asset_url | img_tag }}
         {%- if cart.item_count > 0 -%}
           <span class="site-header__cart-count">{{ cart.item_count }}</span>
         {%- endif -%}
-      </button>
+      </a>
     </div>
 
   </div>

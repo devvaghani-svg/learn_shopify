@@ -1,13 +1,12 @@
 /* ─── Description Section ─── */
 .desc {
   background: #F9F3F1;
-  padding: 60px 0 60px;
+  padding: 20px 80px 60px;
 }
 
 /* ── Header ── */
 .desc__header {
   text-align: center;
-  padding: 0 20px;
   margin-bottom: 36px;
 }
 
@@ -29,7 +28,9 @@
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  padding: 0 40px 12px;
+  margin-left: -80px;
+  margin-right: -80px;
+  padding: 0 80px 12px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -42,9 +43,9 @@
 .desc__video-card {
   position: relative;
   flex-shrink: 0;
-  width: 280px;
-  height: 380px;
-  border-radius: 16px;
+  width: 305px;
+  height: 504px;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -72,7 +73,7 @@
 
 /* ── Description Box ── */
 .desc__box {
-  margin: 40px 40px 0;
+  margin: 40px 0 0;
   background: #fff;
   border: 0.5px solid #025A60;
   border-radius: 12px;
@@ -140,12 +141,11 @@
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .desc {
-    padding: 28px 0 32px;
+    padding: 28px 16px 32px;
   }
 
   .desc__header {
     margin-bottom: 20px;
-    padding: 0 16px;
   }
 
   .desc__heading {
@@ -160,26 +160,23 @@
   .desc__videos {
     display: flex;
     overflow-x: auto;
-    padding: 0 0 8px 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 0 16px 8px;
     gap: 10px;
     scroll-snap-type: x mandatory;
-    scroll-padding-left: 16px;
   }
 
   .desc__video-card {
-    min-width: 160px;
-    width: 160px;
-    height: 210px;
-    border-radius: 12px;
+    min-width: 200px;
+    width: 200px;
+    height: 340px;
+    border-radius: 8px;
     scroll-snap-align: start;
   }
 
-  .desc__video-card:last-child {
-    margin-right: 16px;
-  }
-
   .desc__box {
-    margin: 20px 16px 0;
+    margin: 20px 0 0;
     padding: 16px;
     border-radius: 10px;
   }

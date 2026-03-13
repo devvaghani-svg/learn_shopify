@@ -22,46 +22,62 @@
 /* ── Card ── */
 .reviews__card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  align-items: center;
+  width: 414px;
+  height: 220px;
+  border: 0.6px solid #ede8e3;
+  padding: 10px;
+  gap: 10px;
+}
+
+.reviews__card-media {
+  flex-shrink: 0;
+  width: 146px;
+  height: 200px;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .reviews__card-img {
-  width: 140px;
-  min-width: 140px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
-  align-self: stretch;
 }
 
 .reviews__card-body {
-  padding: 20px 16px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   flex: 1;
+  overflow: hidden;
 }
 
 /* ── Quote icon ── */
 .reviews__quote {
-  font-size: 28px;
-  font-weight: 900;
-  color: #E8558A;
-  line-height: 1;
+  line-height: 0;
+  margin-bottom: 4px;
+}
+
+.reviews__quote img {
+  width: 24px;
+  height: auto;
 }
 
 /* ── Stars ── */
 .reviews__stars {
   display: flex;
-  gap: 6px;
+  gap: 4px;
 }
 
 .reviews__star {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   fill: #F5A623;
 }
 
@@ -72,23 +88,27 @@
 /* ── Review text ── */
 .reviews__text {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.5;
   font-weight: 400;
   color: #3A3A3E;
   flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  line-clamp: 4;
 }
 
 /* ── Author ── */
 .reviews__author {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 4px;
+  gap: 8px;
 }
 
 .reviews__avatar {
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -114,13 +134,7 @@
 
 .reviews__slider-track .reviews__card {
   min-width: 100%;
-  flex-direction: column;
-}
-
-.reviews__slider-track .reviews__card-img {
-  width: 100%;
-  min-width: unset;
-  height: 220px;
+  flex-direction: row;
 }
 
 .reviews__dots {
@@ -164,12 +178,8 @@
     display: block;
   }
 
-  .reviews__slider-track .reviews__card-img {
-    height: 180px;
-  }
-
   .reviews__card-body {
-    padding: 14px 12px;
+    padding: 0;
     gap: 6px;
   }
 

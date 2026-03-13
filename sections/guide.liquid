@@ -6,20 +6,22 @@
   <section class="guide">
     <div class="guide__card">
 
-      {%- comment -%} ── IMAGE ── {%- endcomment -%}
-      {%- assign guide_image = section.settings.image | default: product.featured_image -%}
-      {%- if guide_image -%}
-        <img
-          class="guide__img"
-          src="{{ guide_image | image_url: width: 900 }}"
-          alt="{{ product.title | escape }}"
-          width="600"
-          height="600"
-          loading="lazy"
-        >
-      {%- endif -%}
+      {%- comment -%} ── LEFT: IMAGE ── {%- endcomment -%}
+      <div class="guide__media">
+        {%- assign guide_image = section.settings.image | default: product.featured_image -%}
+        {%- if guide_image -%}
+          <img
+            class="guide__img"
+            src="{{ guide_image | image_url: width: 900 }}"
+            alt="{{ product.title | escape }}"
+            width="608"
+            height="500"
+            loading="lazy"
+          >
+        {%- endif -%}
+      </div>
 
-      {%- comment -%} ── CONTENT ── {%- endcomment -%}
+      {%- comment -%} ── RIGHT: DATA ── {%- endcomment -%}
       <div class="guide__content">
 
         {%- if section.settings.heading != blank -%}
@@ -47,7 +49,7 @@
 
       </div>
 
-    </div>
+    </div><!-- /.guide__card -->
   </section>
 {%- endif -%}
 

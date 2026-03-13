@@ -6,20 +6,24 @@
 
 <div class="reviews__card" {{ block.shopify_attributes }}>
 
-  {%- if block.settings.review_image != blank -%}
-    <img
-      class="reviews__card-img"
-      src="{{ block.settings.review_image | image_url: width: 300 }}"
-      alt="{{ block.settings.reviewer_name | escape }}"
-      width="140"
-      height="200"
-      loading="lazy"
-    >
-  {%- endif -%}
+  {%- comment -%} Child 1: Image {%- endcomment -%}
+  <div class="reviews__card-media">
+    {%- if block.settings.review_image != blank -%}
+      <img
+        class="reviews__card-img"
+        src="{{ block.settings.review_image | image_url: width: 300 }}"
+        alt="{{ block.settings.reviewer_name | escape }}"
+        width="146"
+        height="200"
+        loading="lazy"
+      >
+    {%- endif -%}
+  </div>
 
+  {%- comment -%} Child 2: Data {%- endcomment -%}
   <div class="reviews__card-body">
 
-    <span class="reviews__quote" aria-hidden="true">&ldquo;</span>
+    <span class="reviews__quote" aria-hidden="true">{{ 'quata.svg' | asset_url | img_tag }}</span>
 
     <div class="reviews__stars" aria-label="{{ block.settings.star_rating }} out of 5 stars">
       {%- for i in (1..5) -%}
@@ -39,8 +43,8 @@
           class="reviews__avatar"
           src="{{ block.settings.avatar_image | image_url: width: 72 }}"
           alt="{{ block.settings.reviewer_name | escape }}"
-          width="36"
-          height="36"
+          width="28"
+          height="28"
           loading="lazy"
         >
       {%- endif -%}
