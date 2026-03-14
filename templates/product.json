@@ -272,6 +272,7 @@
       "type": "check",
       "settings": {
         "image": "shopify://shop_images/close-up-veterinarian-taking-care-dog_1.png",
+        "mobile_image": "shopify://shop_images/close-up-veterinarian-taking-care-dog_1_1.png",
         "image_alt": "",
         "heading": "Check with my vet",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.",
