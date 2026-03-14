@@ -1,7 +1,7 @@
 /* ─── Footer ─── */
 .footer {
   background: #025A60;
-  padding: 60px 80px 0;
+  padding: 60px 80px 50px;
 }
 
 /* ── Main grid ── */
@@ -129,10 +129,14 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+.footer__back-top--mobile {
+  display: none;
+}
+
 .footer__contact-heading {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  color: #fff;
+  color: #FAF1EC;
   margin: 0 0 8px;
 }
 
@@ -156,6 +160,7 @@
 }
 
 .footer__contact-item strong {
+  font-size: 16px;
   color: #fff;
   font-weight: 700;
 }
@@ -205,7 +210,14 @@
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .footer {
-    padding: 40px 20px 0;
+    padding: 24px 18px 0;
+  }
+
+  .footer__back-top--mobile {
+    display: flex;
+    margin: 0 auto 24px;
+    width: fit-content;
+    color: #fff;
   }
 
   .footer__grid {
@@ -223,12 +235,14 @@
     gap: 24px;
   }
 
-  .footer__back-top {
-    margin-bottom: 24px;
+  /* Hide original back-to-top inside contact col */
+  .footer__contact-col > .footer__back-top:not(.footer__back-top--mobile) {
+    display: none;
   }
 
   .footer__contact-row {
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 }

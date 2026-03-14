@@ -127,7 +127,6 @@ svg {
 
 .site-header {
   background-color: #f5ede3;
-  border-top: 3px solid #1d5c58;
   position: fixed;
   top: 0;
   z-index: 100;

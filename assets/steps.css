@@ -164,7 +164,7 @@
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .steps {
-    padding: 28px 16px 40px;
+    padding: 28px 18px 40px;
   }
 
   /* Single column, reorder: heading → image → list */
@@ -181,7 +181,8 @@
 
   .steps__heading {
     order: 1;
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 0;
   }

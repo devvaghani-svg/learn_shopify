@@ -44,7 +44,7 @@
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .payingpartner {
-    padding: 32px 16px;
+    padding: 32px 18px;
   }
 
   .payingpartner__logos {

@@ -129,7 +129,9 @@
   }
 
   .related__heading {
-    font-size: 26px;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
   }
 
   .related__grid {

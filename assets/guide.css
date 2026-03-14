@@ -53,6 +53,10 @@
   text-align: center;
 }
 
+.guide__heading--mobile {
+  display: none;
+}
+
 /* ── Table ── */
 .guide__table {
   width: 100%;
@@ -118,7 +122,7 @@
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .guide {
-    padding: 28px 16px 32px;
+    padding: 28px 18px 50px;
   }
 
   .guide__card {
@@ -135,7 +139,7 @@
   .guide__img {
     width: calc(100% - 20px);
     height: 220px;
-    margin: 10px 10px 0;
+    margin: 0 18px;
     border-radius: 8px;
   }
 
@@ -145,8 +149,17 @@
   }
 
   .guide__heading {
-    font-size: 22px;
-    margin-bottom: 20px;
+    display: none;
+  }
+
+  .guide__heading--mobile {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    color: #3A3A3E;
+    margin:22px 0;
+    padding: 0 16px;
   }
 
   .guide__table th {

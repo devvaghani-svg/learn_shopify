@@ -79,7 +79,7 @@
   width: 90px;
   height: 90px;
   border-radius: 12px;
-  border: 2px solid #E8186D;
+  border: 1px solid #E8186D;
   object-fit: cover;
   display: block;
 }
@@ -92,7 +92,7 @@
 .right__item-title {
   font-size: 24px;
   font-weight: 700;
-  color: #3A3A3E;
+  color: #000000;
   margin: 0 0 14px;
   line-height: 33px;
 }
@@ -128,7 +128,7 @@
   }
 
   .right__item-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .right__item-desc {
@@ -139,7 +139,7 @@
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .right {
-    padding: 28px 16px 40px;
+    padding: 28px 18px 40px;
   }
 
   .right__container {
@@ -155,7 +155,8 @@
   /* Order: heading → image → list */
   .right__heading {
     order: 1;
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 700;
     margin-bottom: 0;
     text-align: center;
   }

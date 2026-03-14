@@ -8,7 +8,7 @@
     {%- comment -%} ── GALLERY ── {%- endcomment -%}
     <div class="pdp__gallery">
 
-      <div class="pdp__main-wrap">
+      <div class="pdp__main-wrap" id="pdp-scroll-track">
 
         <button class="pdp__arrow pdp__arrow--prev" data-gallery-prev type="button" aria-label="Previous image">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -16,16 +16,20 @@
           </svg>
         </button>
 
-        {%- if product.featured_image -%}
-          <img
-            id="pdp-main-img"
-            class="pdp__main-img"
-            src="{{ product.featured_image | image_url: width: 900 }}"
-            alt="{{ product.title | escape }}"
-            width="900"
-            height="900"
-          >
-        {%- endif -%}
+        <div class="pdp__slides" id="pdp-slides">
+          {%- for image in product.images -%}
+            <div class="pdp__slide" data-slide-index="{{ forloop.index0 }}">
+              <img
+                class="pdp__main-img"
+                src="{{ image | image_url: width: 900 }}"
+                alt="{{ product.title | escape }}"
+                width="900"
+                height="900"
+                loading="{{ forloop.first | default: 'lazy' }}"
+              >
+            </div>
+          {%- endfor -%}
+        </div>
 
         <button class="pdp__arrow pdp__arrow--next" data-gallery-next type="button" aria-label="Next image">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -160,9 +164,11 @@
 
         </div>
 
-        <button class="pdp__buy-now-btn" type="button" data-buy-now>
-          Buy It Now
-        </button>
+        <div class="pdp__buy-now-wrap">
+          <button class="pdp__buy-now-btn" type="button" data-buy-now>
+            Buy It Now
+          </button>
+        </div>
 
       </form>
 

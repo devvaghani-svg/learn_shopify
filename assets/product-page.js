@@ -2,34 +2,53 @@
   'use strict';
 
   /* ── Gallery ── */
-  var mainImg    = document.getElementById('pdp-main-img');
-  var thumbBtns  = document.querySelectorAll('[data-gallery-thumb]');
-  var prevBtn    = document.querySelector('[data-gallery-prev]');
-  var nextBtn    = document.querySelector('[data-gallery-next]');
-  var currentIdx = 0;
+  var slidesTrack = document.getElementById('pdp-slides');
+  var thumbBtns   = document.querySelectorAll('[data-gallery-thumb]');
+  var prevBtn     = document.querySelector('[data-gallery-prev]');
+  var nextBtn     = document.querySelector('[data-gallery-next]');
+  var slides      = document.querySelectorAll('[data-slide-index]');
+  var currentIdx  = 0;
+  var totalSlides = slides.length;
 
-  var imageSrcs = [];
-  thumbBtns.forEach(function (btn) {
-    imageSrcs.push(btn.dataset.fullSrc);
-  });
+  function setSlide(idx) {
+    if (!slidesTrack || totalSlides === 0) return;
+    currentIdx = (idx + totalSlides) % totalSlides;
+    slidesTrack.style.transform = 'translateX(-' + (currentIdx * 100) + '%)';
+    syncThumbs(currentIdx);
+  }
 
-  function setImage(idx) {
-    if (!mainImg || imageSrcs.length === 0) return;
-    currentIdx = (idx + imageSrcs.length) % imageSrcs.length;
-    mainImg.src = imageSrcs[currentIdx];
+  function syncThumbs(idx) {
     thumbBtns.forEach(function (btn) {
-      btn.classList.toggle('is-active', parseInt(btn.dataset.galleryThumb) === currentIdx);
+      btn.classList.toggle('is-active', parseInt(btn.dataset.galleryThumb) === idx);
     });
   }
 
   thumbBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      setImage(parseInt(this.dataset.galleryThumb));
+      setSlide(parseInt(this.dataset.galleryThumb));
     });
   });
 
-  if (prevBtn) prevBtn.addEventListener('click', function () { setImage(currentIdx - 1); });
-  if (nextBtn) nextBtn.addEventListener('click', function () { setImage(currentIdx + 1); });
+  if (prevBtn) prevBtn.addEventListener('click', function () { setSlide(currentIdx - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { setSlide(currentIdx + 1); });
+
+  // ── Touch swipe ──
+  if (slidesTrack) {
+    var touchStartX = 0;
+    var touchEndX   = 0;
+
+    slidesTrack.addEventListener('touchstart', function (e) {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    slidesTrack.addEventListener('touchend', function (e) {
+      touchEndX = e.changedTouches[0].clientX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        setSlide(diff > 0 ? currentIdx + 1 : currentIdx - 1);
+      }
+    }, { passive: true });
+  }
 
   /* ── Variants ── */
   var variantsData = [];
@@ -79,9 +98,9 @@
       if (priceEl) priceEl.textContent = 'Get it for ' + formatMoney(finalPrice);
     });
 
-    // If variant has specific images, swap gallery to first
-    if (variant.images && variant.images.length > 0 && mainImg) {
-      mainImg.src = variant.images[0];
+    // If variant has specific images, scroll gallery to first
+    if (variant.images && variant.images.length > 0) {
+      setSlide(0);
     }
   }
 

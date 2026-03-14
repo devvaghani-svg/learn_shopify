@@ -64,6 +64,20 @@
   background: #1a3a38;
 }
 
+.pdp__slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.pdp__slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+}
+
 .pdp__main-img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -75,10 +89,11 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border: none;
+  border: 0.5px solid #D4E391;
+  box-shadow: 0.5px 0.5px 0px 0px #D4E391;
   background: #e8185a;
   cursor: pointer;
   display: flex;
@@ -128,14 +143,14 @@
   overflow: hidden;
   cursor: pointer;
   background: none;
-  padding: 0;
+  padding: 1px;
   flex-shrink: 0;
   opacity: 0.4;
   transition: border-color 0.15s, opacity 0.15s;
 }
 
 .pdp__thumb.is-active {
-  border-color: #1d5c58;
+  border: 1px solid #025A60;
   opacity: 1;
 }
 
@@ -144,6 +159,8 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border: 1px solid transparent;
+  border-radius: 7px;
 }
 
 /* ─── Info ─── */
@@ -158,9 +175,9 @@
   color: #D4E391;
   font-size: 16px;
   font-weight: 700;
-  padding: 0px 16px;
+  padding: 0px 10px;
   border-radius: 40px;
-  margin: 14px 0;
+  margin:0 0 14px;
 }
 
 .pdp__title {
@@ -221,8 +238,8 @@
 
 .pdp__benefit-icon {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,7 +275,7 @@ line-height: 21px;
   letter-spacing: 0.08em;
   color: #555;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
 .pdp__variants {
@@ -539,16 +556,20 @@ line-height: 21px;
     flex: 1;
   }
 
-  .pdp__buy-now-btn {
-    width: 100%;
-  }
-
   .pdp__benefit {
     width: 100%;
   }
 
   .pdp__coupons {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .pdp__coupons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .pdp__coupon {
@@ -558,16 +579,24 @@ line-height: 21px;
 
 /* ─── Mobile ─── */
 @media (max-width: 768px) {
-  
+  .pdp {
+    padding: 35px 0 0;
+    overflow-x: hidden;
+  }
+
+
 
   .pdp__inner {
     grid-template-columns: 1fr;
     gap: 0;
     padding: 0;
+    width: 100%;
+    max-width: 100%;
   }
 
   .pdp__gallery {
     position: static;
+    padding: 0 18px;
   }
 
   .pdp__main-wrap {
@@ -575,14 +604,12 @@ line-height: 21px;
     max-width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
-    border-radius: 0;
+    border-radius: 8px;
+    overflow: hidden;
   }
 
-  .pdp__thumbs {
-    padding: 12px 16px;
-    margin-top: 0;
-    background: #edeae3;
-  }
+
+  
 
   .pdp__thumb {
     width: 66px;
@@ -591,7 +618,11 @@ line-height: 21px;
   }
 
   .pdp__info {
-    padding: 20px 16px 40px;
+    padding: 20px 18px 40px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .pdp__title {
@@ -608,6 +639,7 @@ line-height: 21px;
 
   .pdp__benefit {
     width: 100%;
+    max-width: 100%;
     height: auto;
     min-height: 55px;
   }
@@ -630,20 +662,50 @@ line-height: 21px;
     flex: 1;
   }
 
+  .pdp__buy-now-wrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 12px;
+    z-index: 50;
+  }
+
   .pdp__buy-now-btn {
     width: 100%;
+    height: 48px;
+    margin: 0;
+    border-radius: 8px;
+    padding: 14.5px 10px;
+    gap: 10px;
+    background: #025A60;
   }
 
   .pdp__coupons {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    margin-left: -18px;
+    margin-right: -18px;
+    padding: 0 18px 4px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .pdp__coupons::-webkit-scrollbar {
+    display: none;
   }
 
   .pdp__coupon {
-    max-width: 100%;
+    flex-shrink: 0;
+    width: 264px;
+    max-width: 264px;
     height: 56px;
   }
 
   .pdp__coupon-price {
-    font-size: 12px;
+    font-size: 18px;
   }
 }

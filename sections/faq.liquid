@@ -7,9 +7,11 @@
   {%- endif -%}
 
   <div class="faq__list">
+    {%- assign faq_first = true -%}
     {%- for block in section.blocks -%}
       {%- if block.type == 'faq_item' -%}
-        <details class="faq__item" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
+        <details class="faq__item" {% if faq_first %}open{% endif %} {{ block.shopify_attributes }}>
+        {%- assign faq_first = false -%}
           <summary class="faq__question">
             {{- block.settings.question -}}
             <span class="faq__icon" aria-hidden="true"></span>
