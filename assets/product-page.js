@@ -13,7 +13,9 @@
   function setSlide(idx) {
     if (!slidesTrack || totalSlides === 0) return;
     currentIdx = (idx + totalSlides) % totalSlides;
-    slidesTrack.style.transform = 'translateX(-' + (currentIdx * 100) + '%)';
+    var slideEls = slidesTrack.querySelectorAll('.pdp__slide');
+    var target = slideEls[currentIdx];
+    if (target) slidesTrack.style.transform = 'translateX(-' + target.offsetLeft + 'px)';
     syncThumbs(currentIdx);
   }
 
@@ -33,22 +35,50 @@
   if (nextBtn) nextBtn.addEventListener('click', function () { setSlide(currentIdx + 1); });
 
   // ── Touch swipe ──
-  if (slidesTrack) {
+  var mainWrap = document.getElementById('pdp-scroll-track');
+  if (mainWrap) {
     var touchStartX = 0;
-    var touchEndX   = 0;
-
-    slidesTrack.addEventListener('touchstart', function (e) {
+    mainWrap.addEventListener('touchstart', function (e) {
       touchStartX = e.changedTouches[0].clientX;
     }, { passive: true });
-
-    slidesTrack.addEventListener('touchend', function (e) {
-      touchEndX = e.changedTouches[0].clientX;
-      var diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 40) {
-        setSlide(diff > 0 ? currentIdx + 1 : currentIdx - 1);
-      }
+    mainWrap.addEventListener('touchend', function (e) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) setSlide(diff > 0 ? currentIdx + 1 : currentIdx - 1);
     }, { passive: true });
+
+    // ── Mouse drag ──
+    var mouseStartX = 0;
+    var isDragging = false;
+    mainWrap.addEventListener('mousedown', function (e) {
+      mouseStartX = e.clientX;
+      isDragging = true;
+    });
+    mainWrap.addEventListener('mouseup', function (e) {
+      if (!isDragging) return;
+      isDragging = false;
+      var diff = mouseStartX - e.clientX;
+      if (Math.abs(diff) > 40) setSlide(diff > 0 ? currentIdx + 1 : currentIdx - 1);
+    });
+    mainWrap.addEventListener('mouseleave', function () { isDragging = false; });
+
+    // ── Wheel / trackpad scroll (horizontal only) ──
+    var scrollCooldown = false;
+    var scrollAccum = 0;
+    mainWrap.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) return;
+      e.preventDefault();
+      if (scrollCooldown) return;
+      scrollAccum += e.deltaX;
+      if (Math.abs(scrollAccum) < 150) return;
+      var dir = scrollAccum > 0 ? 1 : -1;
+      scrollAccum = 0;
+      scrollCooldown = true;
+      setSlide(currentIdx + dir);
+      setTimeout(function () { scrollCooldown = false; }, 600);
+    }, { passive: false });
   }
+
+
 
   /* ── Variants ── */
   var variantsData = [];
@@ -61,11 +91,14 @@
   var variantInput  = document.getElementById('pdp-variant-id');
   var priceEl       = document.getElementById('pdp-price');
   var compareEl     = document.getElementById('pdp-compare-price');
+  var atcBtn        = document.querySelector('.pdp__atc-btn');
+  var buyNowBtn     = document.querySelector('[data-buy-now]');
 
   function formatMoney(cents) {
     if (cents == null) return '';
     var amount = (cents / 100).toFixed(2);
-    return '\u20B9' + amount.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    var symbol = window.__currencySymbol || '';
+    return symbol + amount.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
   function selectVariant(variantId) {
@@ -88,6 +121,14 @@
     variantBtns.forEach(function (btn) {
       btn.classList.toggle('is-active', parseInt(btn.dataset.variantId) === variantId);
     });
+
+    // Sold out state
+    var soldOut = !variant.available;
+    if (atcBtn) {
+      atcBtn.disabled = soldOut;
+      atcBtn.textContent = soldOut ? 'Sold Out' : 'Add to Cart';
+    }
+    if (buyNowBtn) buyNowBtn.disabled = soldOut;
 
     // Update coupon prices
     document.querySelectorAll('[data-discount]').forEach(function (box) {
