@@ -99,7 +99,7 @@
         data-cart-open-trigger
       >
         {{ 'cart.svg' | asset_url | img_tag }}
-        <span class="site-header__cart-count">{{ cart.item_count }}</span>
+        <span class="site-header__cart-count" data-cart-count>{{ cart.item_count }}</span>
       </button>
     </div>
 

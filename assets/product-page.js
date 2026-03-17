@@ -185,6 +185,42 @@
     });
   }
 
+  /* ── Add to Cart (AJAX) ── */
+  var pdpFormEl = document.getElementById('pdp-form');
+  if (pdpFormEl && atcBtn) {
+    pdpFormEl.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var variantId = variantInput ? variantInput.value : '';
+      var qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
+      if (!variantId) return;
+
+      atcBtn.disabled = true;
+      var originalText = atcBtn.textContent.trim();
+      atcBtn.textContent = 'Adding...';
+
+      // Open drawer immediately
+      document.querySelector('cart-drawer')?.open();
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: parseInt(variantId), quantity: qty })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function () {
+          return typeof refreshCartDrawer === 'function' ? refreshCartDrawer() : Promise.resolve();
+        })
+        .then(function () {
+          atcBtn.textContent = originalText;
+          atcBtn.disabled = false;
+        })
+        .catch(function () {
+          atcBtn.textContent = originalText;
+          atcBtn.disabled = false;
+        });
+    });
+  }
+
   /* ── Buy It Now ── */
   var buyNowBtn = document.querySelector('[data-buy-now]');
   var pdpForm   = document.getElementById('pdp-form');
@@ -193,9 +229,17 @@
     buyNowBtn.addEventListener('click', function () {
       var variantId = variantInput ? variantInput.value : '';
       var qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
-      window.location.href = window.Shopify && window.Shopify.routes
-        ? window.Shopify.routes.root + 'cart/' + variantId + ':' + qty + '?checkout'
-        : '/cart/' + variantId + ':' + qty + '?checkout';
+      if (!variantId) return;
+      buyNowBtn.disabled = true;
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: parseInt(variantId), quantity: qty })
+      }).then(function () {
+        window.location.href = '/checkout';
+      }).catch(function () {
+        buyNowBtn.disabled = false;
+      });
     });
   }
 
